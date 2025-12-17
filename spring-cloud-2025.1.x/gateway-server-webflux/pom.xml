@@ -9,9 +9,9 @@
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.com.xuxiaowei.gateway</groupId>
-    <artifactId>gateway-server-webflux</artifactId>
+    <artifactId>gateway-server-webflux-2025.1.x</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>gateway-server-webflux</name>
+    <name>gateway-server-webflux-2025.1.x</name>
     <description>gateway-server-webflux</description>
     <url/>
     <licenses>

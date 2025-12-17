@@ -9,9 +9,9 @@
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.com.xuxiaowei.gateway</groupId>
-    <artifactId>gateway-server-webmvc</artifactId>
+    <artifactId>gateway-server-webmvc-2025.1.x</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>gateway-server-webmvc</name>
+    <name>gateway-server-webmvc-2025.1.x</name>
     <description>gateway-server-webmvc</description>
     <url/>
     <licenses>

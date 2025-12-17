@@ -9,9 +9,9 @@
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.com.xuxiaowei</groupId>
-    <artifactId>user</artifactId>
+    <artifactId>user-2025.1.x</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>user</name>
+    <name>user-2025.1.x</name>
     <description>user</description>
     <url/>
     <licenses>
