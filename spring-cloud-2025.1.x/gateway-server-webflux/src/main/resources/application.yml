@@ -1,0 +1,41 @@
+server:
+  port: 5011
+
+spring:
+  application:
+    name: gateway-server-webflux
+
+---
+
+spring:
+  config:
+    import: nacos:application-gateway-server-webflux.yml
+  cloud:
+    nacos:
+      discovery:
+        namespace: ${NACOS_DISCOVERY_NAMESPACE:public}
+        server-addr: ${NACOS_DISCOVERY_SERVER_ADDR:127.0.0.1:8848}
+      config:
+        namespace: ${NACOS_CONFIG_NAMESPACE:${NACOS_DISCOVERY_NAMESPACE:public}}
+        server-addr: ${NACOS_CONFIG_SERVER_ADDR:${NACOS_DISCOVERY_SERVER_ADDR:127.0.0.1:8848}}
+        import-check:
+          enabled: false
+        file-extension: yml
+
+---
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+          routes:
+            - id: user
+              uri: lb://user
+              predicates:
+                - Path=/user/**
+              filters:
+                - RewritePath=/user/(?<path>.*), /${path}

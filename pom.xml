@@ -26,6 +26,11 @@
         <spring-javaformat-maven-plugin.version>0.0.47</spring-javaformat-maven-plugin.version>
     </properties>
 
+    <modules>
+        <module>nacos-bootstrap-3.x</module>
+        <module>spring-cloud-2025.1.x</module>
+    </modules>
+
     <build>
         <plugins>
             <plugin>

@@ -32,7 +32,7 @@ build/
 ### VS Code ###
 .vscode/
 
-.DS_Store
-
-derby.log
-logs
+/derby.log
+/logs/
+/work/
+/spy.log
