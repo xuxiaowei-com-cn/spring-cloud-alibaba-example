@@ -35,4 +35,4 @@ spring:
               predicates:
                 - Path=/user/**
               filters:
-                - RewritePath=/user/(?<path>.*), /${path}
+                - RewritePath=/user/(.*), /$1
