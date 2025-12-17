@@ -1,4 +1,4 @@
-name: Spring Cloud Alibaba Example 2025.0.x CI
+name: Spring Cloud Alibaba 2025.0.x CI
 
 on:
   push:
@@ -105,6 +105,7 @@ jobs:
           curl -s -o /dev/null -w "%{http_code}" http://localhost:5023/properties | grep -q "200" || exit 1
           echo "Checking password in user service response..."
           response=$(curl -s http://localhost:5023/properties)
+          echo "$response"
           echo "$response" | grep -q '"password":"xuxiaowei.com.cn"' || (echo "ERROR: Password is not xuxiaowei.com.cn"; echo "Response: $response"; exit 1)
           echo "$response" | grep -q '"test.name":"zhangsan"' || (echo "ERROR: Password is not zhangsan"; echo "Response: $response"; exit 1)
 
@@ -112,6 +113,7 @@ jobs:
           curl -s -o /dev/null -w "%{http_code}" http://localhost:5021/user/properties | grep -q "200" || exit 1
           echo "Checking password in gateway response..."
           response=$(curl -s http://localhost:5021/user/properties)
+          echo "$response"
           echo "$response" | grep -q '"password":"xuxiaowei.com.cn"' || (echo "ERROR: Password is not xuxiaowei.com.cn"; echo "Response: $response"; exit 1)
           echo "$response" | grep -q '"test.name":"zhangsan"' || (echo "ERROR: Password is not zhangsan"; echo "Response: $response"; exit 1)
 
@@ -119,6 +121,7 @@ jobs:
           curl -s -o /dev/null -w "%{http_code}" http://localhost:5022/user/properties | grep -q "200" || exit 1
           echo "Checking password in gateway-mvc response..."
           response=$(curl -s http://localhost:5022/user/properties)
+          echo "$response"
           echo "$response" | grep -q '"password":"xuxiaowei.com.cn"' || (echo "ERROR: Password is not xuxiaowei.com.cn"; echo "Response: $response"; exit 1)
           echo "$response" | grep -q '"test.name":"zhangsan"' || (echo "ERROR: Password is not zhangsan"; echo "Response: $response"; exit 1)
 

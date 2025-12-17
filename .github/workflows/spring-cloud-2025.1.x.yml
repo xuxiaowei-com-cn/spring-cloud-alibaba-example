@@ -1,4 +1,4 @@
-name: Spring Cloud Alibaba Example 2025.1.x CI
+name: Spring Cloud Alibaba 2025.1.x CI
 
 on:
   push:
@@ -105,18 +105,21 @@ jobs:
           curl -s -o /dev/null -w "%{http_code}" http://localhost:5013/properties | grep -q "200" || exit 1
           echo "Checking password in user service response..."
           response=$(curl -s http://localhost:5013/properties)
+          echo "$response"
           echo "$response" | grep -q '"password":"xuxiaowei.com.cn"' || (echo "ERROR: Password is not xuxiaowei.com.cn"; echo "Response: $response"; exit 1)
           
           echo "Testing gateway-server-webflux..."
           curl -s -o /dev/null -w "%{http_code}" http://localhost:5011/user/properties | grep -q "200" || exit 1
           echo "Checking password in gateway-server-webflux response..."
           response=$(curl -s http://localhost:5011/user/properties)
+          echo "$response"
           echo "$response" | grep -q '"password":"xuxiaowei.com.cn"' || (echo "ERROR: Password is not xuxiaowei.com.cn"; echo "Response: $response"; exit 1)
           
           echo "Testing gateway-server-webmvc..."
           curl -s -o /dev/null -w "%{http_code}" http://localhost:5012/user/properties | grep -q "200" || exit 1
           echo "Checking password in gateway-server-webmvc response..."
           response=$(curl -s http://localhost:5012/user/properties)
+          echo "$response"
           echo "$response" | grep -q '"password":"xuxiaowei.com.cn"' || (echo "ERROR: Password is not xuxiaowei.com.cn"; echo "Response: $response"; exit 1)
           
           echo "All API tests passed!"
