@@ -1,0 +1,125 @@
+name: Spring Cloud Alibaba Example 2025.0.x CI
+
+on:
+  push:
+    branches: [ main, xuxiaowei/* ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    env:
+      MYSQL_HOST: 127.0.0.1
+      MYSQL_PORT: 3306
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: nacos
+      NACOS_BOOTSTRAP_DIR: nacos-bootstrap-3.x
+      NACOS_DATABASE_HOST: 127.0.0.1
+      NACOS_DATABASE_PORT: 3306
+      NACOS_DATABASE: nacos
+      NACOS_DATABASE_USERNAME: root
+      NACOS_DATABASE_PASSWORD: root
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_PASSWORD }}
+          MYSQL_DATABASE: ${{ env.MYSQL_DATABASE }}
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=30
+          --health-start-period=30s
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Wait for MySQL to be ready
+        run: |
+          echo "Waiting for MySQL to be fully ready..."
+          # 等待 MySQL 服务完全启动
+          for i in {1..30}; do
+            if mysqladmin ping -h 127.0.0.1 -P 3306 -u root -proot --silent 2>/dev/null; then
+              echo "MySQL is ready!"
+              break
+            fi
+            echo "Waiting for MySQL... attempt $i"
+            sleep 2
+          done
+          # 额外等待以确保完全稳定
+          sleep 5
+
+      - name: Initialize MySQL database
+        run: |
+          echo "Initializing MySQL database with schema.sql"
+          # 检查 schema.sql 文件是否存在
+          if [ -f "${{ env.NACOS_BOOTSTRAP_DIR }}/src/main/resources/sql/mysql-schema.sql" ]; then
+            echo "Found schema.sql file"
+            # 使用 --show-warnings 参数来抑制警告
+            mysql -h 127.0.0.1 -P 3306 -u root -proot --show-warnings --connect-timeout=30 ${{ env.MYSQL_DATABASE }} < ${{ env.NACOS_BOOTSTRAP_DIR }}/src/main/resources/sql/mysql-schema.sql
+            echo "Database initialized successfully"
+          else
+            echo "ERROR: schema.sql file not found at ${{ env.NACOS_BOOTSTRAP_DIR }}/src/main/resources/sql/mysql-schema.sql"
+            exit 1
+          fi
+
+      - name: Build with Maven
+        run: ./mvnw clean install -U -DskipTests
+
+      - name: Start nacos-bootstrap
+        run: |
+          cd ${{ env.NACOS_BOOTSTRAP_DIR }}
+          nohup ./mvnw spring-boot:run &
+          sleep 30
+
+      - name: Run tests
+        run: ./mvnw test
+
+      - name: Start spring-cloud-2025.0.x services
+        run: |
+          cd spring-cloud-2025.0.x
+          nohup ./mvnw spring-boot:run -pl user &
+          sleep 20
+          nohup ./mvnw spring-boot:run -pl gateway &
+          sleep 20
+          nohup ./mvnw spring-boot:run -pl gateway-mvc &
+          sleep 20
+
+      - name: Test API endpoints
+        run: |
+          echo "Testing user service..."
+          curl -s -o /dev/null -w "%{http_code}" http://localhost:5023/properties | grep -q "200" || exit 1
+          echo "Checking password in user service response..."
+          response=$(curl -s http://localhost:5023/properties)
+          echo "$response" | grep -q '"password":"xuxiaowei.com.cn"' || (echo "ERROR: Password is not xuxiaowei.com.cn"; echo "Response: $response"; exit 1)
+          echo "$response" | grep -q '"test.name":"zhangsan"' || (echo "ERROR: Password is not zhangsan"; echo "Response: $response"; exit 1)
+
+          echo "Testing gateway..."
+          curl -s -o /dev/null -w "%{http_code}" http://localhost:5021/user/properties | grep -q "200" || exit 1
+          echo "Checking password in gateway response..."
+          response=$(curl -s http://localhost:5021/user/properties)
+          echo "$response" | grep -q '"password":"xuxiaowei.com.cn"' || (echo "ERROR: Password is not xuxiaowei.com.cn"; echo "Response: $response"; exit 1)
+          echo "$response" | grep -q '"test.name":"zhangsan"' || (echo "ERROR: Password is not zhangsan"; echo "Response: $response"; exit 1)
+
+          echo "Testing gateway-mvc..."
+          curl -s -o /dev/null -w "%{http_code}" http://localhost:5022/user/properties | grep -q "200" || exit 1
+          echo "Checking password in gateway-mvc response..."
+          response=$(curl -s http://localhost:5022/user/properties)
+          echo "$response" | grep -q '"password":"xuxiaowei.com.cn"' || (echo "ERROR: Password is not xuxiaowei.com.cn"; echo "Response: $response"; exit 1)
+          echo "$response" | grep -q '"test.name":"zhangsan"' || (echo "ERROR: Password is not zhangsan"; echo "Response: $response"; exit 1)
+
+          echo "All API tests passed!"
