@@ -15,34 +15,35 @@ import java.util.Map;
 @RestController
 public class UserController {
 
-    private UserProperties userProperties;
+	private UserProperties userProperties;
 
-    @Autowired
-    public void setUserProperties(UserProperties userProperties) {
-        this.userProperties = userProperties;
-    }
+	@Autowired
+	public void setUserProperties(UserProperties userProperties) {
+		this.userProperties = userProperties;
+	}
 
-    @GetMapping("/properties")
-    public Map<String, Object> getUserProperties() {
-        Map<String, Object> map = new HashMap<>();
-        map.put("name", userProperties.getName());
-        map.put("description", userProperties.getDescription());
-        map.put("username", userProperties.getUsername());
-        map.put("password", userProperties.getPassword());
+	@GetMapping("/properties")
+	public Map<String, Object> getUserProperties() {
+		Map<String, Object> map = new HashMap<>();
+		map.put("name", userProperties.getName());
+		map.put("description", userProperties.getDescription());
+		map.put("username", userProperties.getUsername());
+		map.put("password", userProperties.getPassword());
 
-        String hostName;
-        try {
-            // Get the local host instance
-            InetAddress localHost = InetAddress.getLocalHost();
-            // Get the computer name (hostname)
-            hostName = localHost.getHostName();
-        } catch (UnknownHostException e) {
-            log.error("获取 IP 异常：", e);
-            hostName = e.getMessage();
-        }
-        map.put("hostName", hostName);
+		String hostName;
+		try {
+			// Get the local host instance
+			InetAddress localHost = InetAddress.getLocalHost();
+			// Get the computer name (hostname)
+			hostName = localHost.getHostName();
+		}
+		catch (UnknownHostException e) {
+			log.error("获取 IP 异常：", e);
+			hostName = e.getMessage();
+		}
+		map.put("hostName", hostName);
 
-        return map;
-    }
+		return map;
+	}
 
 }
