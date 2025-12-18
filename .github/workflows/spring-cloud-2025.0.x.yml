@@ -21,7 +21,7 @@ jobs:
       NACOS_DATABASE: nacos
       NACOS_DATABASE_USERNAME: root
       NACOS_DATABASE_PASSWORD: root
-
+      NACOS_CREATE_TOKEN: true
       MODULE_NAME: spring-cloud-2025.0.x
 
     services:
@@ -73,6 +73,7 @@ jobs:
             echo "Found schema.sql file"
             # 使用 --show-warnings 参数来抑制警告
             mysql -h 127.0.0.1 -P 3306 -u root -proot --show-warnings --connect-timeout=30 ${{ env.MYSQL_DATABASE }} < ${{ env.NACOS_BOOTSTRAP_DIR }}/src/main/resources/sql/mysql-schema.sql
+            mysql -h 127.0.0.1 -P 3306 -u root -proot --show-warnings --connect-timeout=30 ${{ env.MYSQL_DATABASE }} < ${{ env.NACOS_BOOTSTRAP_DIR }}/src/main/resources/sql/mysql-data.sql
             echo "Database initialized successfully"
           else
             echo "ERROR: schema.sql file not found at ${{ env.NACOS_BOOTSTRAP_DIR }}/src/main/resources/sql/mysql-schema.sql"

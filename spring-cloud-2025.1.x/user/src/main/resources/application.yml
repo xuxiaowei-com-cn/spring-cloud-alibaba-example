@@ -10,6 +10,7 @@ spring:
 spring:
   config:
     import:
+      - nacos:token.yml
       - nacos:application-user.yml
       - optional:nacos:application-test.yml
   cloud:

@@ -16,5 +16,9 @@
 
 ### 数据库
 
-- [mysql-schema.sql](nacos-bootstrap-3.x/src/main/resources/sql/mysql-schema.sql)
-    1. Nacos 数据库表结构和数据
+- [sql](nacos-bootstrap-3.x/src/main/resources/sql)
+    - [mysql-schema.sql](nacos-bootstrap-3.x/src/main/resources/sql/mysql-schema.sql)
+        1. Nacos 数据库表结构
+    - [mysql-data.sql](nacos-bootstrap-3.x/src/main/resources/sql/mysql-data.sql)
+        1. Nacos 数据库数据
+        2. Nacos 用户名：nacos，密码：nacos
