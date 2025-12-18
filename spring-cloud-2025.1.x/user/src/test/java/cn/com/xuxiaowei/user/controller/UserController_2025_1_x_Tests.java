@@ -3,6 +3,7 @@ package cn.com.xuxiaowei.user.controller;
 import cn.com.xuxiaowei.user.properties.TokenProperties;
 import cn.com.xuxiaowei.user.properties.UserProperties;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,12 @@ class UserController_2025_1_x_Tests {
 
 	@Autowired
 	private UserProperties userProperties;
+
+	@BeforeEach
+	void setUp() {
+		String token = tokenProperties.getToken();
+		editPassword(token, "xuxiaowei.com.cn");
+	}
 
 	@Test
 	@Disabled
