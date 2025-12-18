@@ -8,11 +8,11 @@
 | [spring-cloud-2025.0.x](spring-cloud-2025.0.x)                                               | 3.5.8       | 2025.0.0     | 2025.0.0.0           | 3.0.3 | pom       | Spring Cloud 2025.0.x 依赖管理 |
 | [spring-cloud-2025.0.x/gateway](spring-cloud-2025.0.x/gateway)                               | 同上          | 同上           | 同上                   | 同上    | jar       | gateway webflux            |
 | [spring-cloud-2025.0.x/gateway-mvc](spring-cloud-2025.0.x/gateway-mvc)                       | 同上          | 同上           | 同上                   | 同上    | jar       | gateway mvc                |
-| [spring-cloud-2025.0.x/user](spring-cloud-2025.0.x/user)                                     | 同上          | 同上           | 同上                   | 同上    | jar       | 用于服务                       |
+| [spring-cloud-2025.0.x/user](spring-cloud-2025.0.x/user)                                     | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：服务间调用、读取 nacos 中的配置     |
 | [spring-cloud-2025.1.x](spring-cloud-2025.1.x)                                               | 4.0.0       | 2025.1.0     | 2025.1.0.0-SNAPSHOT  | 3.0.3 | pom       | Spring Cloud 2025.1.x 依赖管理 |
 | [spring-cloud-2025.1.x/gateway-server-webflux](spring-cloud-2025.1.x/gateway-server-webflux) | 同上          | 同上           | 同上                   | 同上    | jar       | gateway webflux            |
 | [spring-cloud-2025.1.x/gateway-server-webmvc](spring-cloud-2025.1.x/gateway-server-webmvc)   | 同上          | 同上           | 同上                   | 同上    | jar       | gateway mvc                |
-| [spring-cloud-2025.1.x/user](spring-cloud-2025.1.x/user)                                     | 同上          | 同上           | 同上                   | 同上    | jar       | 用于服务                       |
+| [spring-cloud-2025.1.x/user](spring-cloud-2025.1.x/user)                                     | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：服务间调用、读取 nacos 中的配置     |
 
 ### 数据库
 
@@ -22,3 +22,8 @@
     - [mysql-data.sql](nacos-bootstrap-3.x/src/main/resources/sql/mysql-data.sql)
         1. Nacos 数据库数据
         2. Nacos 用户名：nacos，密码：nacos
+
+## GitHub Actions CI/CD
+
+1. [![Spring Cloud Alibaba 2025.0.x](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.0.x.yml/badge.svg)](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.0.x.yml)
+2. [![Spring Cloud Alibaba 2025.1.x](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.1.x.yml/badge.svg)](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.1.x.yml)

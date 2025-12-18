@@ -1,4 +1,4 @@
-name: Spring Cloud Alibaba 2025.0.x CI
+name: Spring Cloud Alibaba 2025.0.x
 
 on:
   push:
