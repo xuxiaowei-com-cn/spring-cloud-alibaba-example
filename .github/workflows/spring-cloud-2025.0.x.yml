@@ -99,4 +99,6 @@ jobs:
           sleep 20
 
       - name: Run ${{ env.MODULE_NAME }} tests
-        run: ./mvnw test -pl ${{ env.MODULE_NAME }}
+        run: |
+          cd ${{ env.MODULE_NAME }}
+          ./mvnw test
