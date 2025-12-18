@@ -5,6 +5,9 @@
 | 模块                                                                                           | Spring Boot | Spring Cloud | Spring Cloud Alibaba | Nacos | packaging | 说明                         |
 |----------------------------------------------------------------------------------------------|-------------|--------------|----------------------|-------|-----------|----------------------------|
 | [nacos-bootstrap-3.x](nacos-bootstrap-3.x)                                                   | 3.4.9       | -            | -                    | 3.1.1 | jar       | 用于快速启动 Nacos               |
+| [spring-cloud-2022.0.x](spring-cloud-2022.0.x)                                               | 3.0.13      | 2022.0.5     | 2022.0.0.2           | 2.2.3 | pom       | Spring Cloud 2022.0.x 依赖管理 |
+| [spring-cloud-2022.0.x/gateway](spring-cloud-2022.0.x/gateway)                               | 同上          | 同上           | 同上                   | 同上    | jar       | gateway webflux            |
+| [spring-cloud-2022.0.x/user](spring-cloud-2022.0.x/user)                                     | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：服务间调用、读取 nacos 中的配置     |
 | [spring-cloud-2023.0.x](spring-cloud-2023.0.x)                                               | 3.2.12      | 2023.0.6     | 2023.0.3.4           | 2.4.3 | pom       | Spring Cloud 2023.0.x 依赖管理 |
 | [spring-cloud-2023.0.x/gateway](spring-cloud-2023.0.x/gateway)                               | 同上          | 同上           | 同上                   | 同上    | jar       | gateway webflux            |
 | [spring-cloud-2023.0.x/gateway-mvc](spring-cloud-2023.0.x/gateway-mvc)                       | 同上          | 同上           | 同上                   | 同上    | jar       | gateway mvc                |
@@ -29,6 +32,7 @@
 
 ## GitHub Actions CI/CD
 
-1. [![Spring Cloud Alibaba 2023.0.x](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2023.0.x.yml/badge.svg)](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2023.0.x.yml)
-2. [![Spring Cloud Alibaba 2025.0.x](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.0.x.yml/badge.svg)](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.0.x.yml)
-3. [![Spring Cloud Alibaba 2025.1.x](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.1.x.yml/badge.svg)](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.1.x.yml)
+1. [![Spring Cloud Alibaba 2022.0.x](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2022.0.x.yml/badge.svg)](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2022.0.x.yml)
+2. [![Spring Cloud Alibaba 2023.0.x](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2023.0.x.yml/badge.svg)](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2023.0.x.yml)
+3. [![Spring Cloud Alibaba 2025.0.x](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.0.x.yml/badge.svg)](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.0.x.yml)
+4. [![Spring Cloud Alibaba 2025.1.x](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.1.x.yml/badge.svg)](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.1.x.yml)
