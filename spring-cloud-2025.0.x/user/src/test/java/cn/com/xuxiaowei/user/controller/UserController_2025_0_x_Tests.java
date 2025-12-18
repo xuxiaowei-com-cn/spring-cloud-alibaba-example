@@ -37,9 +37,10 @@ class UserController_2025_0_x_Tests {
 	private UserProperties userProperties;
 
 	@BeforeEach
-	void setUp() {
+	void setUp() throws InterruptedException {
 		String token = tokenProperties.getToken();
 		editPassword(token, "xuxiaowei.com.cn");
+		Thread.sleep(1_000);
 	}
 
 	@Test
