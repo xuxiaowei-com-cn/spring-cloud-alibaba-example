@@ -94,6 +94,8 @@ jobs:
           cd ${{ env.MODULE_NAME }}
           nohup ./mvnw spring-boot:run -pl user &
           sleep 20
+          nohup ./mvnw spring-boot:run -pl user-actuator &
+          sleep 20
           nohup ./mvnw spring-boot:run -pl gateway &
           sleep 20
           nohup ./mvnw spring-boot:run -pl gateway-mvc &

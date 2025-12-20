@@ -38,6 +38,7 @@
         <module>gateway</module>
         <module>gateway-mvc</module>
         <module>user</module>
+        <module>user-actuator</module>
     </modules>
 
     <dependencyManagement>

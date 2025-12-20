@@ -39,3 +39,9 @@ spring:
                 - Path=/user/**
               filters:
                 - RewritePath=/user/(?<path>.*), /${path}
+            - id: user-actuator
+              uri: lb://user-actuator
+              predicates:
+                - Path=/user-actuator/**
+              filters:
+                - RewritePath=/user-actuator/(?<path>.*), /${path}
