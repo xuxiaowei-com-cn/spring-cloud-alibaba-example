@@ -38,6 +38,7 @@
         <module>gateway-server-webflux</module>
         <module>gateway-server-webmvc</module>
         <module>user</module>
+        <module>user-actuator</module>
     </modules>
 
     <dependencyManagement>

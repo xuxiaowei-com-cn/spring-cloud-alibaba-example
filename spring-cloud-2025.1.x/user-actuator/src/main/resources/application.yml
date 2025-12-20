@@ -1,0 +1,26 @@
+server:
+  port: 5014
+
+spring:
+  application:
+    name: user-actuator
+
+---
+
+spring:
+  config:
+    import:
+      - nacos:token.yml
+      - nacos:application-user.yml
+      - optional:nacos:application-test.yml
+  cloud:
+    nacos:
+      discovery:
+        namespace: ${NACOS_DISCOVERY_NAMESPACE:public}
+        server-addr: ${NACOS_DISCOVERY_SERVER_ADDR:127.0.0.1:8848}
+      config:
+        namespace: ${NACOS_CONFIG_NAMESPACE:${NACOS_DISCOVERY_NAMESPACE:public}}
+        server-addr: ${NACOS_CONFIG_SERVER_ADDR:${NACOS_DISCOVERY_SERVER_ADDR:127.0.0.1:8848}}
+        import-check:
+          enabled: false
+        file-extension: yml
