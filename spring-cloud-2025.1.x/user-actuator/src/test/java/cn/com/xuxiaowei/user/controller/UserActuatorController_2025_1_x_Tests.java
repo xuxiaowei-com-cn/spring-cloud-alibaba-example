@@ -4,7 +4,6 @@ import cn.com.xuxiaowei.user.properties.TokenProperties;
 import cn.com.xuxiaowei.user.properties.UserProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -45,7 +44,6 @@ class UserActuatorController_2025_1_x_Tests {
 	}
 
 	@Test
-	@Disabled
 	void properties() throws InterruptedException {
 		// 验证配置
 		{
