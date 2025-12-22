@@ -4,6 +4,7 @@ import cn.com.xuxiaowei.user.properties.TestProperties;
 import cn.com.xuxiaowei.user.properties.UserProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,9 @@ public class UserController {
 	private UserProperties userProperties;
 
 	private TestProperties testProperties;
+
+	@Value("${test.name}")
+	private String testName;
 
 	@Autowired
 	public void setUserProperties(UserProperties userProperties) {
@@ -38,6 +42,7 @@ public class UserController {
 		map.put("username", userProperties.getUsername());
 		map.put("password", userProperties.getPassword());
 		map.put("test.name", testProperties.getName());
+		map.put("test.name.value", testName);
 
 		String hostName;
 		try {

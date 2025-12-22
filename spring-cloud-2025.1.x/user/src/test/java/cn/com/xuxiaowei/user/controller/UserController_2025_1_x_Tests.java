@@ -57,6 +57,9 @@ class UserController_2025_1_x_Tests {
 
 			assertNotNull(map);
 
+			assertNotNull(map.get("test.name.value"));
+			assertEquals("zhangsan", map.get("test.name.value"));
+
 			assertNotNull(map.get("password"));
 			assertEquals("xuxiaowei.com.cn", map.get("password"));
 
