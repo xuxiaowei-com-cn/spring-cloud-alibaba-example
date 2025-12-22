@@ -9,6 +9,9 @@ spring:
 
 custom:
   name: env
+  nacos:
+    config:
+      group: a1
 
 ---
 
@@ -18,6 +21,7 @@ spring:
       - nacos:token.yml
       - nacos:application-user.yml
       - nacos:application-user-${custom.name}.yml
+      - nacos:application-user-a1.yml?group=${custom.nacos.config.group}
       - optional:nacos:application-test.yml
   cloud:
     nacos:

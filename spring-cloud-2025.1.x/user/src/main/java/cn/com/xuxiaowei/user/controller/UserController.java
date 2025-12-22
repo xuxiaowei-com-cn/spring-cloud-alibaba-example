@@ -1,6 +1,7 @@
 package cn.com.xuxiaowei.user.controller;
 
 import cn.com.xuxiaowei.user.properties.TestProperties;
+import cn.com.xuxiaowei.user.properties.UserA1Properties;
 import cn.com.xuxiaowei.user.properties.UserEnvProperties;
 import cn.com.xuxiaowei.user.properties.UserProperties;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +23,8 @@ public class UserController {
 
 	private UserEnvProperties userEnvProperties;
 
+	private UserA1Properties userA1Properties;
+
 	private TestProperties testProperties;
 
 	@Value("${test.name}")
@@ -35,6 +38,11 @@ public class UserController {
 	@Autowired
 	public void setUserEnvProperties(UserEnvProperties userEnvProperties) {
 		this.userEnvProperties = userEnvProperties;
+	}
+
+	@Autowired
+	public void setUserA1Properties(UserA1Properties userA1Properties) {
+		this.userA1Properties = userA1Properties;
 	}
 
 	@Autowired
@@ -52,6 +60,7 @@ public class UserController {
 		map.put("test.name", testProperties.getName());
 		map.put("test.name.value", testName);
 		map.put("user.env.name", userEnvProperties.getName());
+		map.put("user.a1.name", userA1Properties.getName());
 
 		String hostName;
 		try {
