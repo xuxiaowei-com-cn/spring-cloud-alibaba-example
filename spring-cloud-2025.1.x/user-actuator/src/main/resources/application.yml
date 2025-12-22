@@ -7,11 +7,17 @@ spring:
 
 ---
 
+custom:
+  name: env
+
+---
+
 spring:
   config:
     import:
       - nacos:token.yml
       - nacos:application-user.yml
+      - nacos:application-user-${custom.name}.yml
       - optional:nacos:application-test.yml
   cloud:
     nacos:
