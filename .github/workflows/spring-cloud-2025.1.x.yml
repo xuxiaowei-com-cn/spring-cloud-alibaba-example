@@ -105,3 +105,9 @@ jobs:
         run: |
           cd ${{ env.MODULE_NAME }}
           ./mvnw test
+
+      - name: Clean Maven snapshots
+        run: |
+          echo "Cleaning Maven snapshots..."
+          # GitHub Actions 中 Maven 仓库默认位置是 ~/.m2/repository
+          find ~/.m2/repository -type d -name '*-SNAPSHOT' -print -exec rm -r {} +
