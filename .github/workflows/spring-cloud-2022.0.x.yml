@@ -23,6 +23,7 @@ jobs:
       NACOS_DATABASE_PASSWORD: root
       NACOS_CREATE_TOKEN: true
       MODULE_NAME: spring-cloud-2022.0.x
+      GITHUB_TOKEN: ${{ github.token }}
 
     services:
       mysql:

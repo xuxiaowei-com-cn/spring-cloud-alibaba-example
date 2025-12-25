@@ -23,6 +23,7 @@ jobs:
       NACOS_DATABASE_PASSWORD: root
       NACOS_CREATE_TOKEN: true
       MODULE_NAME: spring-cloud-2025.1.x
+      GITHUB_TOKEN: ${{ github.token }}
 
     services:
       mysql:
@@ -79,6 +80,10 @@ jobs:
             echo "ERROR: schema.sql file not found at ${{ env.NACOS_BOOTSTRAP_DIR }}/src/main/resources/sql/mysql-schema.sql"
             exit 1
           fi
+
+      - name: cat ~/.m2/settings.xml
+        run: |
+          cat ~/.m2/settings.xml
 
       - name: Build with Maven
         run: ./mvnw clean install -U -DskipTests
