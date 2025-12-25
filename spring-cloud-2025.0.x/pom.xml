@@ -39,6 +39,7 @@
         <module>gateway-mvc</module>
         <module>user</module>
         <module>user-actuator</module>
+        <module>user-rocketmq</module>
     </modules>
 
     <dependencyManagement>
