@@ -37,6 +37,7 @@
     <modules>
         <module>gateway</module>
         <module>user</module>
+        <module>user-rocketmq</module>
     </modules>
 
     <dependencyManagement>
