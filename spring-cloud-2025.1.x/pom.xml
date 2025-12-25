@@ -40,6 +40,7 @@
         <module>user</module>
         <!-- TODO 临时禁用 org.springframework.boot:spring-boot-starter-actuator，官方快照暂不支持 -->
         <!--<module>user-actuator</module>-->
+        <module>user-rocketmq</module>
     </modules>
 
     <dependencyManagement>
