@@ -33,10 +33,11 @@
         1. Nacos 数据库表结构
     - [mysql-data.sql](nacos-bootstrap-3.x/src/main/resources/sql/mysql-data.sql)
         1. Nacos 数据库数据
-        2. Nacos 用户名：nacos，密码：nacos
 
 ### Nacos
 
+- Nacos 后台管理地址：http://127.0.0.1:8080
+- Nacos 用户名：`nacos`，密码：`nacos`
 - [NacosBootstrap_3_x.java](nacos-bootstrap-3.x/src/main/java/com/alibaba/nacos/bootstrap/NacosBootstrap_3_x.java)
   启动 nacos 时，如果存在环境变量 `NACOS_CREATE_TOKEN=true`，会创建一个 nacos `token` 并更新到 nacos 的配置（`token.yml`）中：
     1. nacos `token` 用于在测试类中修改 nacos 配置中心中的配置，用于配置动态刷新的测试
