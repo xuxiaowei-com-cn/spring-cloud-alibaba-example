@@ -1,0 +1,74 @@
+# 服务器配置
+server:
+  port: 5035  # 应用服务端口
+
+# 应用基本信息
+spring:
+  application:
+    name: user-rocketmq  # 应用名称，用于服务发现和配置中心
+
+---
+
+# Nacos配置中心和服务发现配置
+spring:
+  config:
+    import:
+      - nacos:application-user-rocketmq.yml  # 从Nacos导入配置文件
+  cloud:
+    nacos:
+      # Nacos服务发现配置
+      discovery:
+        namespace: ${NACOS_DISCOVERY_NAMESPACE:public}  # 服务发现命名空间，默认public
+        server-addr: ${NACOS_DISCOVERY_SERVER_ADDR:127.0.0.1:8848}  # Nacos服务发现地址，默认127.0.0.1:8848
+      # Nacos配置中心配置
+      config:
+        namespace: ${NACOS_CONFIG_NAMESPACE:${NACOS_DISCOVERY_NAMESPACE:public}}  # 配置中心命名空间，默认使用服务发现命名空间
+        server-addr: ${NACOS_CONFIG_SERVER_ADDR:${NACOS_DISCOVERY_SERVER_ADDR:127.0.0.1:8848}}  # 配置中心地址，默认使用服务发现地址
+        import-check:
+          enabled: false  # 禁用导入检查
+        file-extension: yml  # 配置文件扩展名
+
+---
+
+# RocketMQ 生产者配置
+spring:
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          # RocketMQ NameServer 地址
+          name-server: ${ROCKETMQ_NAME_SERVER:127.0.0.1:9876}
+      bindings:
+        # 生产者输出通道
+        producer-out-0:
+          # 目标主题名称
+          destination: user-rocketmq-broadcast
+          # 消息内容类型
+          content-type: application/json
+
+---
+
+# RocketMQ 消费者配置
+spring:
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          # RocketMQ NameServer 地址
+          name-server: ${ROCKETMQ_NAME_SERVER:127.0.0.1:9876}
+      bindings:
+        # 消费者输入通道
+        consumer-in-0:
+          # 订阅的主题名称
+          destination: user-rocketmq-broadcast
+          # 消费者组名称
+          group: user-rocketmq-broadcast-consumer
+          # 消息内容类型
+          content-type: application/json
+
+---
+
+logging:
+  level:
+    org.springframework.context.support: debug
+    cn.com.xuxiaowei.user: debug
