@@ -30,6 +30,8 @@
 | [spring-cloud-2025.1.x/user](spring-cloud-2025.1.x/user)                                     | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：服务间调用、读取 nacos 中的配置              |
 | [spring-cloud-2025.1.x/user-actuator](spring-cloud-2025.1.x/user-actuator)                   | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：服务间调用、读取 nacos 中的配置（测试 actuator） |
 
+## [分支](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/wiki)
+
 ### 数据库
 
 - [sql](nacos-bootstrap-3.x/src/main/resources/sql)
