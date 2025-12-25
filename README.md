@@ -8,6 +8,7 @@
 | [spring-cloud-2021.0.x](spring-cloud-2021.0.x)                                               | 2.6.15      | 2021.0.9     | 2021.0.6.2           | 2.2.0 | pom       | Spring Cloud 2021.0.x 依赖管理          |
 | [spring-cloud-2021.0.x/gateway](spring-cloud-2021.0.x/gateway)                               | 同上          | 同上           | 同上                   | 同上    | jar       | gateway webflux                     |
 | [spring-cloud-2021.0.x/user](spring-cloud-2021.0.x/user)                                     | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：服务间调用、读取 nacos 中的配置              |
+| [spring-cloud-2021.0.x/user-rocketmq](spring-cloud-2021.0.x/user-rocketmq)                   | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：RocketMQ                         |
 | [spring-cloud-2022.0.x](spring-cloud-2022.0.x)                                               | 3.0.13      | 2022.0.5     | 2022.0.0.2           | 2.2.3 | pom       | Spring Cloud 2022.0.x 依赖管理          |
 | [spring-cloud-2022.0.x/gateway](spring-cloud-2022.0.x/gateway)                               | 同上          | 同上           | 同上                   | 同上    | jar       | gateway webflux                     |
 | [spring-cloud-2022.0.x/user](spring-cloud-2022.0.x/user)                                     | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：服务间调用、读取 nacos 中的配置              |

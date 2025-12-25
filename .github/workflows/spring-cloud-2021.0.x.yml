@@ -44,6 +44,51 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Start RocketMQ
+        run: |
+          echo 'Create a custom network'
+          docker network create rocketmq
+          
+          echo 'Start create NameServer'
+          docker run -d --name rmqnamesrv -p 9876:9876 --network rocketmq apache/rocketmq:5.3.1 sh mqnamesrv
+          echo 'Complete create NameServer'
+          
+          sleep 5
+          
+          echo 'Start viewing NameServer logs'
+          docker logs rmqnamesrv
+          echo 'Complete viewing NameServer logs'
+          
+          # Create broker config
+          echo "brokerIP1=127.0.0.1" > broker.conf
+          chmod 777 broker.conf
+          
+          # Start Broker and Proxy
+          # -p 8080:8080 -p 8081:8081
+          echo 'Start create Broker'
+          docker run -d \
+          --name rmqbroker \
+          --network rocketmq \
+          -p 10912:10912 -p 10911:10911 -p 10909:10909 \
+          -e "NAMESRV_ADDR=rmqnamesrv:9876" \
+          -v ./broker.conf:/home/rocketmq/rocketmq-4.9.4/conf/broker.conf \
+          apache/rocketmq:5.3.1 sh mqbroker --enable-proxy \
+          -c /home/rocketmq/rocketmq-4.9.4/conf/broker.conf
+          echo 'Complete create Broker'
+          
+          sleep 5
+          
+          echo 'Start viewing Broker logs'
+          docker logs rmqbroker
+          echo 'Complete viewing Broker logs'
+
+          sleep 10
+          
+          # Create Topic
+          echo 'Start Create Topic'
+          docker exec rmqbroker sh mqadmin updateTopic -n rmqnamesrv:9876 -c DefaultCluster -t user-rocketmq-broadcast
+          echo 'Complete Create Topic'
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
