@@ -14,14 +14,23 @@ jobs:
       MYSQL_PORT: 3306
       MYSQL_USER: root
       MYSQL_PASSWORD: root
+
       MYSQL_DATABASE: nacos
       NACOS_BOOTSTRAP_DIR: nacos-bootstrap-3.x
+      SEATA_SERVER_DIR: seata-server-2.x
       NACOS_DATABASE_HOST: 127.0.0.1
       NACOS_DATABASE_PORT: 3306
       NACOS_DATABASE: nacos
       NACOS_DATABASE_USERNAME: root
       NACOS_DATABASE_PASSWORD: root
       NACOS_CREATE_TOKEN: true
+
+      EXAMPLE_DATABASE_HOST: 127.0.0.1
+      EXAMPLE_DATABASE_PORT: 3306
+      EXAMPLE_DATABASE: spring-cloud-alibaba-example
+      EXAMPLE_DATABASE_USERNAME: root
+      EXAMPLE_DATABASE_PASSWORD: root
+
       MODULE_NAME: spring-cloud-2023.0.x
       GITHUB_TOKEN: ${{ github.token }}
 
@@ -120,6 +129,8 @@ jobs:
             # 使用 --show-warnings 参数来抑制警告
             mysql -h 127.0.0.1 -P 3306 -u root -proot --show-warnings --connect-timeout=30 ${{ env.MYSQL_DATABASE }} < ${{ env.NACOS_BOOTSTRAP_DIR }}/src/main/resources/sql/mysql-schema.sql
             mysql -h 127.0.0.1 -P 3306 -u root -proot --show-warnings --connect-timeout=30 ${{ env.MYSQL_DATABASE }} < ${{ env.NACOS_BOOTSTRAP_DIR }}/src/main/resources/sql/mysql-data.sql
+            mysql -h 127.0.0.1 -P 3306 -u root -proot --show-warnings --connect-timeout=30 ${{ env.MYSQL_DATABASE }} < sql/mysql-schema.sql
+            mysql -h 127.0.0.1 -P 3306 -u root -proot --show-warnings --connect-timeout=30 ${{ env.MYSQL_DATABASE }} < sql/mysql-data.sql
             echo "Database initialized successfully"
           else
             echo "ERROR: schema.sql file not found at ${{ env.NACOS_BOOTSTRAP_DIR }}/src/main/resources/sql/mysql-schema.sql"
@@ -139,10 +150,18 @@ jobs:
           nohup ./mvnw spring-boot:run &
           sleep 30
 
+      - name: Start seata-server
+        run: |
+          cd ${{ env.SEATA_SERVER_DIR }}
+          nohup ./mvnw spring-boot:run &
+          sleep 30
+
       - name: Start ${{ env.MODULE_NAME }} services
         run: |
           cd ${{ env.MODULE_NAME }}
           nohup ./mvnw spring-boot:run -pl user &
+          sleep 20
+          nohup ./mvnw spring-boot:run -pl user-seata &
           sleep 20
           nohup ./mvnw spring-boot:run -pl gateway &
           sleep 20
