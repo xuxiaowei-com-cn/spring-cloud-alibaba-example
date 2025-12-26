@@ -16,6 +16,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Map;
+import java.util.UUID;
 
 import static com.alibaba.nacos.client.auth.impl.NacosAuthLoginConstant.ACCESSTOKEN;
 import static org.junit.jupiter.api.Assertions.*;
@@ -73,25 +74,24 @@ class UserController_2025_1_x_Tests {
 		}
 
 		// 刷新配置
-		// TODO 临时禁用 org.springframework.boot:spring-boot-starter-actuator，官方快照暂不支持
-		// {
-		// String token = tokenProperties.getToken();
-		//
-		// String password = UUID.randomUUID().toString();
-		// editPassword(token, password);
-		//
-		// Thread.sleep(1_000);
-		//
-		// assertNotNull(userProperties.getPassword());
-		// assertEquals(password, userProperties.getPassword());
-		//
-		// editPassword(token, "xuxiaowei.com.cn");
-		//
-		// Thread.sleep(1_000);
-		//
-		// assertNotNull(userProperties.getPassword());
-		// assertEquals("xuxiaowei.com.cn", userProperties.getPassword());
-		// }
+		{
+			String token = tokenProperties.getToken();
+
+			String password = UUID.randomUUID().toString();
+			editPassword(token, password);
+
+			Thread.sleep(1_000);
+
+			assertNotNull(userProperties.getPassword());
+			assertEquals(password, userProperties.getPassword());
+
+			editPassword(token, "xuxiaowei.com.cn");
+
+			Thread.sleep(1_000);
+
+			assertNotNull(userProperties.getPassword());
+			assertEquals("xuxiaowei.com.cn", userProperties.getPassword());
+		}
 
 	}
 
