@@ -14,6 +14,7 @@
 | [spring-cloud-2022.0.x/gateway](spring-cloud-2022.0.x/gateway)                               | 同上          | 同上           | 同上                   | 同上    | jar       | gateway webflux                     |
 | [spring-cloud-2022.0.x/user](spring-cloud-2022.0.x/user)                                     | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：服务间调用、读取 nacos 中的配置              |
 | [spring-cloud-2022.0.x/user-rocketmq](spring-cloud-2022.0.x/user-rocketmq)                   | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：RocketMQ                         |
+| [spring-cloud-2022.0.x/user-seata](spring-cloud-2022.0.x/user-seata)                         | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：Seata（服务内部的事务传播）                 |
 | [spring-cloud-2023.0.x](spring-cloud-2023.0.x)                                               | 3.2.12      | 2023.0.6     | 2023.0.3.4           | 2.4.3 | pom       | Spring Cloud 2023.0.x 依赖管理          |
 | [spring-cloud-2023.0.x/gateway](spring-cloud-2023.0.x/gateway)                               | 同上          | 同上           | 同上                   | 同上    | jar       | gateway webflux                     |
 | [spring-cloud-2023.0.x/gateway-mvc](spring-cloud-2023.0.x/gateway-mvc)                       | 同上          | 同上           | 同上                   | 同上    | jar       | gateway mvc                         |

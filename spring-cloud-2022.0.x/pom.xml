@@ -38,6 +38,7 @@
         <module>gateway</module>
         <module>user</module>
         <module>user-rocketmq</module>
+        <module>user-seata</module>
     </modules>
 
     <dependencyManagement>
