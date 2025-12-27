@@ -142,34 +142,34 @@ jobs:
           cat ~/.m2/settings.xml
 
       - name: Build with Maven
-        run: ./mvnw clean install -U -DskipTests
+        run: ./mvnw -B clean install -U -DskipTests
 
       - name: Start nacos-bootstrap
         run: |
           cd ${{ env.NACOS_BOOTSTRAP_DIR }}
-          nohup ./mvnw spring-boot:run &
+          nohup ./mvnw -B spring-boot:run &
           sleep 30
 
       - name: Start seata-server
         run: |
           cd ${{ env.SEATA_SERVER_DIR }}
-          nohup ./mvnw spring-boot:run &
+          nohup ./mvnw -B spring-boot:run &
           sleep 30
 
       - name: Start ${{ env.MODULE_NAME }} services
         run: |
           cd ${{ env.MODULE_NAME }}
-          nohup ./mvnw spring-boot:run -pl user &
+          nohup ./mvnw -B spring-boot:run -pl user &
           sleep 20
-          nohup ./mvnw spring-boot:run -pl user-seata &
+          nohup ./mvnw -B spring-boot:run -pl user-seata &
           sleep 20
-          nohup ./mvnw spring-boot:run -pl gateway &
+          nohup ./mvnw -B spring-boot:run -pl gateway &
           sleep 20
 
       - name: Run ${{ env.MODULE_NAME }} tests
         run: |
           cd ${{ env.MODULE_NAME }}
-          ./mvnw test
+          ./mvnw -B test
 
       - name: Clean Maven snapshots
         run: |
