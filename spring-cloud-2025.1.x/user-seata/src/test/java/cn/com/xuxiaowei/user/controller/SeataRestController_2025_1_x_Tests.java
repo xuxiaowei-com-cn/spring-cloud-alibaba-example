@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @Slf4j
 @SpringBootTest
-class SeataRestControllerTests {
+class SeataRestController_2025_1_x_Tests {
 
 	@Autowired
 	private AccountService accountService;
@@ -50,7 +50,7 @@ class SeataRestControllerTests {
 
 			HttpEntity<SeataRequest> httpEntity = new HttpEntity<>(request);
 
-			String url = "http://127.0.0.1:5026/seata";
+			String url = "http://127.0.0.1:5016/seata";
 			String value = new RestTemplate().postForObject(url, httpEntity, String.class);
 			log.info(value);
 			assertEquals("{\"code\":200}", value);
@@ -92,7 +92,7 @@ class SeataRestControllerTests {
 
 			HttpEntity<SeataRequest> httpEntity = new HttpEntity<>(request);
 
-			String url = "http://127.0.0.1:5026/seata";
+			String url = "http://127.0.0.1:5016/seata";
 			assertThrows(Exception.class, () -> {
 				try {
 					new RestTemplate().postForObject(url, httpEntity, Map.class);

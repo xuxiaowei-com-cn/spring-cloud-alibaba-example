@@ -14,12 +14,11 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 @SpringBootTest
-class SeataRestControllerTests {
+class SeataRestController_2021_0_x_Tests {
 
 	@Autowired
 	private AccountService accountService;
@@ -50,7 +49,7 @@ class SeataRestControllerTests {
 
 			HttpEntity<SeataRequest> httpEntity = new HttpEntity<>(request);
 
-			String url = "http://127.0.0.1:5016/seata";
+			String url = "http://127.0.0.1:5056/seata";
 			String value = new RestTemplate().postForObject(url, httpEntity, String.class);
 			log.info(value);
 			assertEquals("{\"code\":200}", value);
@@ -92,7 +91,7 @@ class SeataRestControllerTests {
 
 			HttpEntity<SeataRequest> httpEntity = new HttpEntity<>(request);
 
-			String url = "http://127.0.0.1:5016/seata";
+			String url = "http://127.0.0.1:5056/seata";
 			assertThrows(Exception.class, () -> {
 				try {
 					new RestTemplate().postForObject(url, httpEntity, Map.class);
