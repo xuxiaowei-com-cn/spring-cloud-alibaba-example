@@ -89,7 +89,7 @@ class SeataRestControllerTests {
 
 			HttpEntity<SeataRequest> httpEntity = new HttpEntity<>(request);
 
-			String url = "http://127.0.0.1:5036/seata";
+			String url = "http://127.0.0.1:5046/seata";
 			assertThrows(Exception.class, () -> {
 				try {
 					new RestTemplate().postForObject(url, httpEntity, Map.class);
