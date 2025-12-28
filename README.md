@@ -6,6 +6,7 @@
 |----------------------------------------------------------------------------------------------|-------------|--------------|----------------------|-------|-----------|-------------------------------------|
 | [nacos-bootstrap-3.x](nacos-bootstrap-3.x)                                                   | 3.4.9       | -            | -                    | 3.1.1 | jar       | 用于快速启动 Nacos                        |
 | [seata-server-2.x](seata-server-2.x)                                                         | 2.7.18      | -            | -                    | 1.4.6 | jar       | 用于快速启动 Seata                        |
+| [sentinel-dashboard-1.x](sentinel-dashboard-1.x)                                             | 2.5.12      | -            | -                    | -     | jar       | 用于快速启动 sentinel-dashboard           |
 | [spring-cloud-2021.0.x](spring-cloud-2021.0.x)                                               | 2.6.15      | 2021.0.9     | 2021.0.6.2           | 2.2.0 | pom       | Spring Cloud 2021.0.x 依赖管理          |
 | [spring-cloud-2021.0.x/gateway](spring-cloud-2021.0.x/gateway)                               | 同上          | 同上           | 同上                   | 同上    | jar       | gateway webflux                     |
 | [spring-cloud-2021.0.x/user](spring-cloud-2021.0.x/user)                                     | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：服务间调用、读取 nacos 中的配置              |
@@ -62,6 +63,11 @@
     2. 如果 nacos 启动时间过上，nacos `token` 可能会失效，需要重启 nacos
     3. 测试示例：
        [UserController_2025_0_x_Tests.java](spring-cloud-2025.0.x/user/src/test/java/cn/com/xuxiaowei/user/controller/UserController_2025_0_x_Tests.java)
+
+### Sentinel Dashboard
+
+- Sentinel Dashboard 后台管理地址：http://127.0.0.1:58080
+- Sentinel Dashboard 用户名：`sentinel`，密码：`sentinel`
 
 ## GitHub Actions CI/CD
 

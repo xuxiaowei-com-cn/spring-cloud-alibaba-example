@@ -2,12 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.12</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
     <groupId>cn.com.xuxiaowei</groupId>
-    <artifactId>spring-cloud-alibaba-example</artifactId>
+    <artifactId>sentinel-dashboard-1.x</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>spring-cloud-alibaba-example</name>
-    <description>Spring Cloud Alibaba Example</description>
+    <name>sentinel-dashboard-1.x</name>
+    <description>sentinel-dashboard</description>
     <url/>
     <licenses>
         <license/>
@@ -21,24 +26,30 @@
         <tag/>
         <url/>
     </scm>
-
     <properties>
+        <java.version>17</java.version>
+        <sentinel-dashboard.version>1.8.9</sentinel-dashboard.version>
         <spring-javaformat-maven-plugin.version>0.0.47</spring-javaformat-maven-plugin.version>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>io.xuxiaowei.sentinel</groupId>
+            <artifactId>sentinel-dashboard</artifactId>
+            <version>${sentinel-dashboard.version}</version>
+        </dependency>
 
-    <modules>
-        <module>nacos-bootstrap-3.x</module>
-        <module>seata-server-2.x</module>
-        <module>sentinel-dashboard-1.x</module>
-        <module>spring-cloud-2021.0.x</module>
-        <module>spring-cloud-2022.0.x</module>
-        <module>spring-cloud-2023.0.x</module>
-        <module>spring-cloud-2025.0.x</module>
-        <module>spring-cloud-2025.1.x</module>
-    </modules>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>io.spring.javaformat</groupId>
                 <artifactId>spring-javaformat-maven-plugin</artifactId>
