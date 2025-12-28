@@ -101,6 +101,7 @@ class SeataRestControllerTests {
 					String message = e.getMessage();
 					assertThat(message).doesNotContain("No instances available");
 					assertThat(message).doesNotContain("I/O error on POST request");
+					assertThat(message).contains("数量不足");
 					throw e;
 				}
 			});
