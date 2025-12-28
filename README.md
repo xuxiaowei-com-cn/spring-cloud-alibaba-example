@@ -30,6 +30,7 @@
 | [spring-cloud-2025.0.x/user-actuator](spring-cloud-2025.0.x/user-actuator)                   | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：服务间调用、读取 nacos 中的配置（测试 actuator） |
 | [spring-cloud-2025.0.x/user-rocketmq](spring-cloud-2025.0.x/user-rocketmq)                   | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：RocketMQ                         |
 | [spring-cloud-2025.0.x/user-seata](spring-cloud-2025.0.x/user-seata)                         | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：Seata（服务内部的事务传播）                 |
+| [spring-cloud-2025.0.x/user-schedulerx](spring-cloud-2025.0.x/user-schedulerx)               | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：SchedulerX                       |
 | [spring-cloud-2025.1.x](spring-cloud-2025.1.x)                                               | 4.0.0       | 2025.1.0     | 2025.1.0.0-SNAPSHOT  | 3.1.0 | pom       | Spring Cloud 2025.1.x 依赖管理          |
 | [spring-cloud-2025.1.x/gateway-server-webflux](spring-cloud-2025.1.x/gateway-server-webflux) | 同上          | 同上           | 同上                   | 同上    | jar       | gateway webflux                     |
 | [spring-cloud-2025.1.x/gateway-server-webmvc](spring-cloud-2025.1.x/gateway-server-webmvc)   | 同上          | 同上           | 同上                   | 同上    | jar       | gateway mvc                         |
