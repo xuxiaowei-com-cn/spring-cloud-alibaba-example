@@ -1,0 +1,55 @@
+server:
+  port: 5056
+
+spring:
+  application:
+    name: user-seata
+
+---
+
+spring:
+  config:
+    import:
+      - nacos:application-user-seata.yml
+  cloud:
+    nacos:
+      discovery:
+        namespace: ${NACOS_DISCOVERY_NAMESPACE:public}
+        server-addr: ${NACOS_DISCOVERY_SERVER_ADDR:127.0.0.1:8848}
+      config:
+        namespace: ${NACOS_CONFIG_NAMESPACE:${NACOS_DISCOVERY_NAMESPACE:public}}
+        server-addr: ${NACOS_CONFIG_SERVER_ADDR:${NACOS_DISCOVERY_SERVER_ADDR:127.0.0.1:8848}}
+        import-check:
+          enabled: false
+        file-extension: yml
+
+---
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${EXAMPLE_DATABASE_HOST:127.0.0.1}:${EXAMPLE_DATABASE_PORT:3306}/${EXAMPLE_DATABASE:spring-cloud-alibaba-example}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
+    username: ${EXAMPLE_DATABASE_USERNAME:root}
+    password: ${EXAMPLE_DATABASE_PASSWORD:xuxiaowei.com.cn}
+
+---
+
+seata:
+  config:
+    type: nacos
+    nacos:
+      server-addr: ${spring.cloud.nacos.config.server-addr}
+      group: 'SEATA_GROUP'
+      namespace: ${spring.cloud.nacos.config.namespace}
+      dataId: 'seataServer.properties'
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: ${spring.cloud.nacos.discovery.server-addr}
+      group : SEATA_GROUP
+      namespace: ${spring.cloud.nacos.discovery.namespace}
+  tx-service-group: default_tx_group
+  service:
+    vgroup-mapping:
+      default_tx_group: default
