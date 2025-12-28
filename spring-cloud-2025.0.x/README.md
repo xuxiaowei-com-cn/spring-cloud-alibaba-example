@@ -9,3 +9,4 @@
 | [user](user)                   | http://127.0.0.1:5023/properties      | 测试：读取 nacos 中的配置           |
 | [user-actuator](user-actuator) | http://127.0.0.1:5024/properties      | 测试：读取 nacos 中的配置（actuator） |
 | [user-rocketmq](user-rocketmq) |                                       | 测试：RocketMQ                |
+| [user-seata](user-seata)       |                                       | 测试：Seata（服务内部的事务传播）        |
