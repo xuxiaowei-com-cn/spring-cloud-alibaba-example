@@ -39,6 +39,7 @@
         <module>gateway-server-webmvc</module>
         <module>user</module>
         <module>user-actuator</module>
+        <module>user-seata</module>
     </modules>
 
     <dependencyManagement>

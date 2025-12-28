@@ -8,3 +8,4 @@
 | [gateway-server-webmvc](gateway-server-webmvc)   | http://127.0.0.1:5012/user/properties | 测试：服务间调用、读取 nacos 中的配置     |
 | [user](user)                                     | http://127.0.0.1:5013/properties      | 测试：读取 nacos 中的配置           |
 | [user-actuator](user-actuator)                   | http://127.0.0.1:5014/properties      | 测试：读取 nacos 中的配置（actuator） |
+| [user-seata](user-seata)                         |                                       | 测试：Seata（服务内部的事务传播）        |
