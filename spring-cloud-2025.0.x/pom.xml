@@ -42,6 +42,7 @@
         <module>user-rocketmq</module>
         <module>user-seata</module>
         <module>user-schedulerx</module>
+        <module>user-sentinel</module>
     </modules>
 
     <dependencyManagement>

@@ -11,3 +11,4 @@
 | [user-rocketmq](user-rocketmq)     |                                       | 测试：RocketMQ                |
 | [user-seata](user-seata)           |                                       | 测试：Seata（服务内部的事务传播）        |
 | [user-schedulerx](user-schedulerx) |                                       | 测试：SchedulerX              |
+| [user-sentinel](user-sentinel)     |                                       | 测试：Sentinel                |
