@@ -24,6 +24,7 @@
 | [spring-cloud-2023.0.x/user-rocketmq](spring-cloud-2023.0.x/user-rocketmq)                   | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：RocketMQ                         |
 | [spring-cloud-2023.0.x/user-seata](spring-cloud-2023.0.x/user-seata)                         | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：Seata（服务内部的事务传播）                 |
 | [spring-cloud-2023.0.x/user-schedulerx](spring-cloud-2023.0.x/user-schedulerx)               | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：SchedulerX                       |
+| [spring-cloud-2023.0.x/user-sentinel](spring-cloud-2023.0.x/user-sentinel)                   | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：Sentinel                         |
 | [spring-cloud-2025.0.x](spring-cloud-2025.0.x)                                               | 3.5.9       | 2025.0.1     | 2025.0.0.0           | 3.0.3 | pom       | Spring Cloud 2025.0.x 依赖管理          |
 | [spring-cloud-2025.0.x/gateway](spring-cloud-2025.0.x/gateway)                               | 同上          | 同上           | 同上                   | 同上    | jar       | gateway webflux                     |
 | [spring-cloud-2025.0.x/gateway-mvc](spring-cloud-2025.0.x/gateway-mvc)                       | 同上          | 同上           | 同上                   | 同上    | jar       | gateway mvc                         |
