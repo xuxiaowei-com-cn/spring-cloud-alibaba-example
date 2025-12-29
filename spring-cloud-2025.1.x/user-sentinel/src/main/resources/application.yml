@@ -1,0 +1,40 @@
+server:
+  port: 5018
+
+spring:
+  application:
+    name: user-sentinel
+
+---
+
+spring:
+  config:
+    import:
+      - nacos:application-user-sentinel.yml
+  cloud:
+    nacos:
+      discovery:
+        namespace: ${NACOS_DISCOVERY_NAMESPACE:public}
+        server-addr: ${NACOS_DISCOVERY_SERVER_ADDR:127.0.0.1:8848}
+      config:
+        namespace: ${NACOS_CONFIG_NAMESPACE:${NACOS_DISCOVERY_NAMESPACE:public}}
+        server-addr: ${NACOS_CONFIG_SERVER_ADDR:${NACOS_DISCOVERY_SERVER_ADDR:127.0.0.1:8848}}
+        import-check:
+          enabled: false
+        file-extension: yml
+
+---
+
+management:
+  endpoint:
+    health:
+      show-details: always
+
+# 访问 http://localhost:5018/actuator/health ，如果返回 components.sentinel 节点状态为 UP，说明已经上线
+# 访问 http://localhost:5018/actuator/health/sentinel ，如果返回 状态为 UP，说明已经上线
+spring:
+  cloud:
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:58080

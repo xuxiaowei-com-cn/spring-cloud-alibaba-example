@@ -20,6 +20,7 @@ jobs:
       MYSQL_DATABASE: nacos
       NACOS_BOOTSTRAP_DIR: nacos-bootstrap-3.x
       SEATA_SERVER_DIR: seata-server-2.x
+      SENTINEL_DASHBOARD_DIR: sentinel-dashboard-1.x
       NACOS_DATABASE_HOST: 127.0.0.1
       NACOS_DATABASE_PORT: 3306
       NACOS_DATABASE: nacos
@@ -113,6 +114,12 @@ jobs:
           nohup ./mvnw -B spring-boot:run &
           sleep 30
 
+      - name: Start sentinel-dashboard
+        run: |
+          cd ${{ env.SENTINEL_DASHBOARD_DIR }}
+          nohup ./mvnw -B spring-boot:run &
+          sleep 30
+
       - name: Start ${{ env.MODULE_NAME }} services
         run: |
           cd ${{ env.MODULE_NAME }}
@@ -121,6 +128,8 @@ jobs:
           nohup ./mvnw -B spring-boot:run -pl user-actuator &
           sleep 20
           nohup ./mvnw -B spring-boot:run -pl user-seata &
+          sleep 20
+          nohup ./mvnw -B spring-boot:run -pl user-sentinel &
           sleep 20
           nohup ./mvnw -B spring-boot:run -pl gateway-server-webflux &
           sleep 20

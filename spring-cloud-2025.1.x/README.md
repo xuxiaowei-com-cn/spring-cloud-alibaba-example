@@ -10,3 +10,4 @@
 | [user-actuator](user-actuator)                   | http://127.0.0.1:5014/properties      | 测试：读取 nacos 中的配置（actuator） |
 | [user-seata](user-seata)                         |                                       | 测试：Seata（服务内部的事务传播）        |
 | [user-schedulerx](user-schedulerx)               |                                       | 测试：SchedulerX              |
+| [user-sentinel](user-sentinel)                   |                                       | 测试：Sentinel                |

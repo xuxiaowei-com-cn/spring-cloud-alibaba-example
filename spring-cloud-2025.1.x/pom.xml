@@ -41,6 +41,7 @@
         <module>user-actuator</module>
         <module>user-seata</module>
         <module>user-schedulerx</module>
+        <module>user-sentinel</module>
     </modules>
 
     <dependencyManagement>

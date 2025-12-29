@@ -43,6 +43,7 @@
 | [spring-cloud-2025.1.x/user-actuator](spring-cloud-2025.1.x/user-actuator)                   | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：服务间调用、读取 nacos 中的配置（测试 actuator） |
 | [spring-cloud-2025.1.x/user-seata](spring-cloud-2025.1.x/user-seata)                         | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：Seata（服务内部的事务传播）                 |
 | [spring-cloud-2025.1.x/user-schedulerx](spring-cloud-2025.1.x/user-schedulerx)               | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：SchedulerX                       |
+| [spring-cloud-2025.1.x/user-sentinel](spring-cloud-2025.1.x/user-sentinel)                   | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：Sentinel                         |
 
 ## [分支](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/wiki)
 
