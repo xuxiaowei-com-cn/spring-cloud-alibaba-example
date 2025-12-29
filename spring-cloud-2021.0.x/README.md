@@ -8,3 +8,4 @@
 | [user](user)                   | http://127.0.0.1:5053/properties      | 测试：读取 nacos 中的配置       |
 | [user-rocketmq](user-rocketmq) |                                       | 测试：RocketMQ            |
 | [user-seata](user-seata)       |                                       | 测试：Seata（服务内部的事务传播）    |
+| [user-sentinel](user-sentinel) |                                       | 测试：Sentinel            |
