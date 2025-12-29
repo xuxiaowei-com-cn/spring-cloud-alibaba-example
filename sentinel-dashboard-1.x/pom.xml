@@ -10,7 +10,7 @@
     </parent>
     <groupId>cn.com.xuxiaowei</groupId>
     <artifactId>sentinel-dashboard-1.x</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.8.9</version>
     <name>sentinel-dashboard-1.x</name>
     <description>sentinel-dashboard</description>
     <url/>
@@ -28,14 +28,13 @@
     </scm>
     <properties>
         <java.version>17</java.version>
-        <sentinel-dashboard.version>1.8.9</sentinel-dashboard.version>
         <spring-javaformat-maven-plugin.version>0.0.47</spring-javaformat-maven-plugin.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>io.xuxiaowei.sentinel</groupId>
             <artifactId>sentinel-dashboard</artifactId>
-            <version>${sentinel-dashboard.version}</version>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
