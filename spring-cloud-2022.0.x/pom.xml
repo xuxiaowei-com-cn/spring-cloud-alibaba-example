@@ -39,6 +39,7 @@
         <module>user</module>
         <module>user-rocketmq</module>
         <module>user-seata</module>
+        <module>user-sentinel</module>
     </modules>
 
     <dependencyManagement>
