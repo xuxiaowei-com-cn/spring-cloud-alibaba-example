@@ -30,7 +30,7 @@
     <properties>
         <java.version>17</java.version>
         <spring-cloud.version>2025.0.1</spring-cloud.version>
-        <spring-cloud-alibaba.version>2025.0.0.0</spring-cloud-alibaba.version>
+        <spring-cloud-alibaba.version>2025.0.0.1-SNAPSHOT</spring-cloud-alibaba.version>
         <spring-javaformat-maven-plugin.version>0.0.47</spring-javaformat-maven-plugin.version>
     </properties>
 
@@ -63,6 +63,26 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <repositories>
+        <!-- 需要在 settings.xml 配置：
+         <server>
+           <id>github</id>
+           <username>GitHub 用户名</username>
+           <password>GitHub Token（需要 read:packages 权限）</password>
+         </server>
+         -->
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/alibaba/spring-cloud-alibaba</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
