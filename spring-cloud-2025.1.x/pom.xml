@@ -63,14 +63,14 @@
         </dependencies>
     </dependencyManagement>
 
-    <repositories>
-        <!-- 需要在 settings.xml 配置：
+    <!--<repositories>
+        &lt;!&ndash; 需要在 settings.xml 配置：
          <server>
            <id>github</id>
            <username>GitHub 用户名</username>
            <password>GitHub Token（需要 read:packages 权限）</password>
          </server>
-         -->
+         &ndash;&gt;
         <repository>
             <id>github</id>
             <url>https://maven.pkg.github.com/alibaba/spring-cloud-alibaba</url>
@@ -81,7 +81,7 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-    </repositories>
+    </repositories>-->
 
     <build>
         <plugins>
