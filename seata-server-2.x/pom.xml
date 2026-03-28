@@ -28,7 +28,7 @@
     </scm>
     <properties>
         <java.version>1.8</java.version>
-        <seata-server.version>2.5.0</seata-server.version>
+        <seata-server.version>2.6.0</seata-server.version>
         <spring-javaformat-maven-plugin.version>0.0.47</spring-javaformat-maven-plugin.version>
     </properties>
     <dependencies>

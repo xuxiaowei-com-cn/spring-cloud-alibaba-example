@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# 本文件来自：https://github.com/apache/incubator-seata/blob/v2.5.0/server/src/main/resources/application.yml
+# 本文件来自：https://github.com/apache/incubator-seata/blob/v2.6.0/server/src/main/resources/application.yml
 #
 server:
   port: 8091
@@ -55,7 +55,7 @@ seata:
       group: SEATA_GROUP
       data-id: seataServer.properties
   registry:
-    # support: nacos, eureka, redis, zk, consul, etcd3, sofa
+    # support: nacos, eureka, redis, zk, consul, etcd3, sofa, seata
     type: nacos
     nacos:
       application: seata-server
