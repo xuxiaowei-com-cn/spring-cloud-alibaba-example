@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# 本文件来自：https://github.com/apache/incubator-seata/blob/v2.5.0/server/src/main/resources/application.example.yml
+# 本文件来自：https://github.com/apache/incubator-seata/blob/v2.6.0/server/src/main/resources/application.example.yml
 #
 server:
   port: 8091
@@ -176,6 +176,10 @@ seata:
       bucketTokenNumPerSecond: 999999
       bucketTokenMaxNum: 999999
       bucketTokenInitialNum: 999999
+    http:
+      filter:
+        xss:
+          keywords: ["<script>", "</script>", "javascript:", "vbscript:"]
   store:
     # support: file 、 db 、 redis 、 raft
     mode: file
