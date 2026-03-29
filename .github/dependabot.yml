@@ -21,3 +21,13 @@ updates:
       interval: "daily"
       time: "00:00"
       timezone: "Asia/Shanghai"
+    ignore:
+      - dependency-name: org.springframework.boot:spring-boot-starter-parent
+        versions:
+          - ">= 4"
+      - dependency-name: org.springframework.cloud:spring-cloud-dependencies
+        versions:
+          - ">= 2025.1"
+      - dependency-name: com.alibaba.cloud:spring-cloud-alibaba-dependencies
+        versions:
+          - ">= 2025.1"
