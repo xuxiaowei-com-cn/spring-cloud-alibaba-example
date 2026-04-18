@@ -1,3 +1,4 @@
 rootProject.name = 'spring-cloud-alibaba-example'
 
 include 'spring-cloud-2025.1.x'
+include 'spring-cloud-2025.1.x:user'

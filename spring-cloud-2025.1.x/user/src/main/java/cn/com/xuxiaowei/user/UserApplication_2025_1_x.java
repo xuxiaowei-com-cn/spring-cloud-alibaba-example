@@ -1,13 +1,13 @@
-package cn.com.xuxiaowei.spring_cloud_20251.x;
+package cn.com.xuxiaowei.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class UserApplication_2025_1_x {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(UserApplication_2025_1_x.class, args);
 	}
 
 }

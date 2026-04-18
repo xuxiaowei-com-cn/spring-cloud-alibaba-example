@@ -1,10 +1,10 @@
-package cn.com.xuxiaowei.spring_cloud_20251.x;
+package cn.com.xuxiaowei.user;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplicationTests {
+class UserApplication_2025_1_x_Tests {
 
 	@Test
 	void contextLoads() {
