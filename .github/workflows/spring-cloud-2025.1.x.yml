@@ -1,0 +1,27 @@
+name: Spring Cloud Alibaba 2025.1.x
+
+on:
+  push:
+    branches: [ gradle/groovy, xuxiaowei/* ]
+  pull_request:
+    branches: [ gradle/groovy ]
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Build with Gradle
+        run: ./gradlew build
