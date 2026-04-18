@@ -23,5 +23,8 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
+      - name: Gradle Projects
+        run: ./gradlew projects
+
       - name: Build with Gradle
         run: ./gradlew build

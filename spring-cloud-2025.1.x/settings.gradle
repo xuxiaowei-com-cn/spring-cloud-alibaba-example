@@ -1,0 +1,2 @@
+rootProject.name = 'spring-cloud-2025.1.x'
+include 'user'

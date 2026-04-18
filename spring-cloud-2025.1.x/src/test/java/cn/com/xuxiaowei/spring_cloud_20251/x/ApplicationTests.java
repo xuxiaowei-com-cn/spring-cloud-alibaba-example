@@ -1,10 +1,10 @@
-package cn.com.xuxiaowei.spring_cloud_alibaba_example;
+package cn.com.xuxiaowei.spring_cloud_20251.x;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringCloudAlibabaExampleApplicationTests {
+class ApplicationTests {
 
 	@Test
 	void contextLoads() {

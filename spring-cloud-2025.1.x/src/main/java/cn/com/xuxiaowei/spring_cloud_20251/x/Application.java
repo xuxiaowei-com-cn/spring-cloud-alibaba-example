@@ -1,13 +1,13 @@
-package cn.com.xuxiaowei.spring_cloud_alibaba_example;
+package cn.com.xuxiaowei.spring_cloud_20251.x;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringCloudAlibabaExampleApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringCloudAlibabaExampleApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
