@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn.com.xuxiaowei</groupId>
     <artifactId>nacos-bootstrap-3.x</artifactId>
-    <version>3.1.1</version>
+    <version>3.1.2</version>
     <name>nacos-bootstrap-3.x</name>
     <description>Nacos 服务：作者自己编译发布了 Nacos 没有发布过的依赖，此服务用于快速启动 Nacos 服务</description>
     <url/>
@@ -26,7 +26,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>3.4.9</spring-boot.version>
+        <spring-boot.version>3.4.10</spring-boot.version>
         <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
         <spring-javaformat-maven-plugin.version>0.0.47</spring-javaformat-maven-plugin.version>
         <impsort-maven-plugin.version>1.12.0</impsort-maven-plugin.version>
@@ -35,7 +35,7 @@
         <dependency>
             <groupId>io.xuxiaowei.nacos</groupId>
             <artifactId>nacos-console-ui</artifactId>
-            <version>${project.version}</version>
+            <version>${project.version}-fix</version>
         </dependency>
         <dependency>
             <groupId>io.xuxiaowei.nacos</groupId>
