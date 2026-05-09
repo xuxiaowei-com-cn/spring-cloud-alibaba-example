@@ -153,12 +153,15 @@ jobs:
         run: ./mvnw -B clean install -U -DskipTests
 
       - name: Start nacos-server ${{ matrix.nacos-version }}
+        env:
+          NACOS_VERSION: ${{ matrix.nacos-version }}
         run: |
-          cd nacos/${{ matrix.nacos-version }}
+          cd nacos
           docker compose up -d
           docker exec -i nacos env
           sleep 30
           docker logs nacos
+          cd ${{ matrix.nacos-version }}
           python3 create_token.py
 
       - name: Start seata-server
