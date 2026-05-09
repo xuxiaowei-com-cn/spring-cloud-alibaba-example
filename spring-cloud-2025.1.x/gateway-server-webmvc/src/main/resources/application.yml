@@ -9,7 +9,7 @@ spring:
 
 spring:
   config:
-    import: nacos:application-gateway-server-webmvc.yml
+    import: optional:nacos:application-gateway-server-webmvc.yml
   cloud:
     nacos:
       discovery:

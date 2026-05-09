@@ -36,6 +36,18 @@
             <groupId>io.xuxiaowei.seata</groupId>
             <artifactId>seata-server</artifactId>
             <version>${seata-server.version}</version>
+            <exclusions>
+                <!-- seata-server 2.6.0 use nacos-client 1.4.6 -->
+                <exclusion>
+                    <groupId>com.alibaba.nacos</groupId>
+                    <artifactId>nacos-client</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
+            <version>2.0.0</version>
         </dependency>
     </dependencies>
 

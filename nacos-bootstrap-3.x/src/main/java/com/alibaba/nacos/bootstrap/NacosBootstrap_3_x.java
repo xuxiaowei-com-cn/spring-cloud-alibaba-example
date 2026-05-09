@@ -178,9 +178,7 @@ public class NacosBootstrap_3_x {
 
 	private static void startOnlyConsole(String[] args) {
 		NacosStartUpManager.start(NacosStartUp.CONSOLE_START_UP_PHASE);
-		ConfigurableApplicationContext consoleContext = new SpringApplicationBuilder(NacosConsole.class)
-			.banner(getBanner("nacos-console-banner.txt"))
-			.run(args);
+		new SpringApplicationBuilder(NacosConsole.class).banner(getBanner("nacos-console-banner.txt")).run(args);
 	}
 
 	private static Banner getBanner(String bannerFileName) {

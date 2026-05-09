@@ -10,7 +10,7 @@ spring:
 spring:
   config:
     import:
-      - nacos:application-user-sentinel.yml
+      - optional:nacos:application-user-sentinel.yml
   cloud:
     nacos:
       discovery:

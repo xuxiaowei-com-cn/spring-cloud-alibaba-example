@@ -10,7 +10,7 @@ spring:
 spring:
   config:
     import:
-      - nacos:application-user-schedulerx.yml
+      - optional:nacos:application-user-schedulerx.yml
   cloud:
     nacos:
       discovery:

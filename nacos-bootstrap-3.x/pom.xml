@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn.com.xuxiaowei</groupId>
     <artifactId>nacos-bootstrap-3.x</artifactId>
-    <version>3.1.2</version>
+    <version>3.2.0</version>
     <name>nacos-bootstrap-3.x</name>
     <description>Nacos 服务：作者自己编译发布了 Nacos 没有发布过的依赖，此服务用于快速启动 Nacos 服务</description>
     <url/>
@@ -44,6 +44,11 @@
         </dependency>
         <dependency>
             <groupId>io.xuxiaowei.nacos</groupId>
+            <artifactId>nacos-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.xuxiaowei.nacos</groupId>
             <artifactId>nacos-server</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -51,6 +56,11 @@
         <dependency>
             <groupId>io.xuxiaowei.nacos</groupId>
             <artifactId>nacos-mcp-registry-adaptor</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.xuxiaowei.nacos</groupId>
+            <artifactId>nacos-datasource-plugin-base</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
@@ -84,6 +94,10 @@
                         <configuration>
                             <mainClass>com.alibaba.nacos.bootstrap.NacosBootstrap_3_x</mainClass>
                             <layout>ZIP</layout>
+                            <jvmArguments>
+                                --add-opens java.base/java.lang=ALL-UNNAMED
+                                --add-opens java.base/java.util=ALL-UNNAMED
+                            </jvmArguments>
                         </configuration>
                         <executions>
                             <execution>

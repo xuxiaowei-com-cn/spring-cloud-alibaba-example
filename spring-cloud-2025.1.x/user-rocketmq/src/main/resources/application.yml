@@ -13,7 +13,7 @@ spring:
 spring:
   config:
     import:
-      - nacos:application-user-rocketmq.yml  # 从Nacos导入配置文件
+      - optional:nacos:application-user-rocketmq.yml  # 从Nacos导入配置文件
   cloud:
     nacos:
       # Nacos服务发现配置

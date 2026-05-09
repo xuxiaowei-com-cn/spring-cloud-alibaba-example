@@ -10,7 +10,7 @@ spring:
 spring:
   config:
     import:
-      - nacos:application-user-seata.yml
+      - optional:nacos:application-user-seata.yml
   cloud:
     nacos:
       discovery:
