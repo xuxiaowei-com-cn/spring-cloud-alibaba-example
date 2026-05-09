@@ -1,0 +1,5 @@
+### 登录
+POST http://127.0.0.1:8080/v3/auth/user/login
+Content-Type: application/x-www-form-urlencoded
+
+username=nacos&password=nacos
