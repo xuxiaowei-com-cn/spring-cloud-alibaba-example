@@ -13,6 +13,9 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        nacos-version: [ v3.2.1 ]
     env:
       MYSQL_HOST: 127.0.0.1
       MYSQL_PORT: 3306
@@ -20,7 +23,7 @@ jobs:
       MYSQL_PASSWORD: root
 
       MYSQL_DATABASE: nacos
-      NACOS_BOOTSTRAP_DIR: nacos-bootstrap-3.x
+
       SEATA_SERVER_DIR: seata-server-2.x
       SENTINEL_DASHBOARD_DIR: sentinel-dashboard-1.x
       NACOS_DATABASE_HOST: 127.0.0.1
@@ -129,16 +132,16 @@ jobs:
         run: |
           echo "Initializing MySQL database with schema.sql"
           # 检查 schema.sql 文件是否存在
-          if [ -f "${{ env.NACOS_BOOTSTRAP_DIR }}/src/main/resources/sql/mysql-schema.sql" ]; then
+          if [ -f "nacos/${{ matrix.nacos-version }}/mysql-schema.sql" ]; then
             echo "Found schema.sql file"
             # 使用 --show-warnings 参数来抑制警告
-            mysql -h 127.0.0.1 -P 3306 -u root -proot --show-warnings --connect-timeout=30 ${{ env.MYSQL_DATABASE }} < ${{ env.NACOS_BOOTSTRAP_DIR }}/src/main/resources/sql/mysql-schema.sql
-            mysql -h 127.0.0.1 -P 3306 -u root -proot --show-warnings --connect-timeout=30 ${{ env.MYSQL_DATABASE }} < ${{ env.NACOS_BOOTSTRAP_DIR }}/src/main/resources/sql/mysql-data.sql
+            mysql -h 127.0.0.1 -P 3306 -u root -proot --show-warnings --connect-timeout=30 ${{ env.MYSQL_DATABASE }} < nacos/${{ matrix.nacos-version }}/mysql-schema.sql
+            mysql -h 127.0.0.1 -P 3306 -u root -proot --show-warnings --connect-timeout=30 ${{ env.MYSQL_DATABASE }} < nacos/${{ matrix.nacos-version }}/mysql-data.sql
             mysql -h 127.0.0.1 -P 3306 -u root -proot --show-warnings --connect-timeout=30 ${{ env.MYSQL_DATABASE }} < sql/mysql-schema.sql
             mysql -h 127.0.0.1 -P 3306 -u root -proot --show-warnings --connect-timeout=30 ${{ env.MYSQL_DATABASE }} < sql/mysql-data.sql
             echo "Database initialized successfully"
           else
-            echo "ERROR: schema.sql file not found at ${{ env.NACOS_BOOTSTRAP_DIR }}/src/main/resources/sql/mysql-schema.sql"
+            echo "ERROR: schema.sql file not found at nacos/${{ matrix.nacos-version }}/mysql-schema.sql"
             exit 1
           fi
 
@@ -149,11 +152,14 @@ jobs:
       - name: Build with Maven
         run: ./mvnw -B clean install -U -DskipTests
 
-      - name: Start nacos-bootstrap
+      - name: Start nacos-server ${{ matrix.nacos-version }}
         run: |
-          cd ${{ env.NACOS_BOOTSTRAP_DIR }}
-          nohup ./mvnw -B spring-boot:run &
+          cd nacos/${{ matrix.nacos-version }}
+          docker compose up -d
+          docker exec -i nacos env
           sleep 30
+          docker logs nacos
+          python3 create_token.py
 
       - name: Start seata-server
         run: |
