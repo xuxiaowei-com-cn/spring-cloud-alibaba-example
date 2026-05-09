@@ -1,0 +1,28 @@
+services:
+  nacos:
+    container_name: nacos
+    image: nacos/nacos-server:${NACOS_VERSION:-v2.4.3}
+    restart: always
+    network_mode: host
+    #ports:
+    #  - "8080:8080"
+    #  - "8848:8848"
+    environment:
+      # NACOS_AUTH_TOKEN must be set with Base64 String.
+      NACOS_AUTH_TOKEN: VGhpc0lzTXlDdXN0b21TZWNyZXRLZXkwMTIzNDU2Nzg=
+      # NACOS_AUTH_IDENTITY_KEY must be set.
+      NACOS_AUTH_IDENTITY_KEY: testKey
+      # NACOS_AUTH_IDENTITY_VALUE must be set.
+      NACOS_AUTH_IDENTITY_VALUE: testValue
+      MODE: standalone
+
+      #NACOS_AUTH_ENABLE: true
+
+      SPRING_DATASOURCE_PLATFORM: mysql
+      MYSQL_SERVICE_HOST: ${NACOS_DATABASE_HOST:-172.25.25.24}
+      # Caused by: com.mysql.cj.exceptions.UnableToConnectException: Public Key Retrieval is not allowed
+      MYSQL_SERVICE_DB_PARAM: characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      MYSQL_SERVICE_USER: ${NACOS_DATABASE_USERNAME:-root}
+      MYSQL_SERVICE_PASSWORD: ${NACOS_DATABASE_PASSWORD:-xuxiaowei.com.cn}
+      # Caused by: com.mysql.cj.exceptions.CJException: Unknown database '${mysql_service_db_name}'
+      MYSQL_SERVICE_DB_NAME: ${NACOS_DATABASE:-nacos_2.x}

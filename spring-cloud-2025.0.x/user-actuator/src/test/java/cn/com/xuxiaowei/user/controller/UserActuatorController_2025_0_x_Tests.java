@@ -38,8 +38,8 @@ class UserActuatorController_2025_0_x_Tests {
 
 	@BeforeEach
 	void setUp() throws InterruptedException {
-		String token = tokenProperties.getToken();
-		editPassword(token, "xuxiaowei.com.cn");
+		// String token = tokenProperties.getToken();
+		editPassword(null, "xuxiaowei.com.cn");
 		Thread.sleep(1_000);
 	}
 
@@ -75,17 +75,17 @@ class UserActuatorController_2025_0_x_Tests {
 
 		// 刷新配置
 		{
-			String token = tokenProperties.getToken();
+			// String token = tokenProperties.getToken();
 
 			String password = UUID.randomUUID().toString();
-			editPassword(token, password);
+			editPassword(null, password);
 
 			Thread.sleep(1_000);
 
 			assertNotNull(userProperties.getPassword());
 			assertEquals(password, userProperties.getPassword());
 
-			editPassword(token, "xuxiaowei.com.cn");
+			editPassword(null, "xuxiaowei.com.cn");
 
 			Thread.sleep(1_000);
 
@@ -96,9 +96,9 @@ class UserActuatorController_2025_0_x_Tests {
 	}
 
 	void editPassword(String token, String password) {
-		String url = "http://127.0.0.1:8080/v3/console/cs/config";
+		String url = "http://127.0.0.1:8848/nacos/v1/cs/configs";
 		HttpHeaders headers = new HttpHeaders();
-		headers.add(ACCESSTOKEN, token);
+		// headers.add(ACCESSTOKEN, token);
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 		MultiValueMap<String, String> requestBody = new LinkedMultiValueMap<>();
 		requestBody.set("dataId", "application-user.yml");
@@ -108,12 +108,10 @@ class UserActuatorController_2025_0_x_Tests {
 		requestBody.set("type", "yaml");
 		HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(requestBody, headers);
 		RestTemplate restTemplate = new RestTemplate();
-		Map map = restTemplate.postForObject(url, entity, Map.class);
-		log.info(String.valueOf(map));
-		assertNotNull(map);
-		assertNotNull(map.get("data"));
-		assertInstanceOf(Boolean.class, map.get("data"));
-		assertTrue((boolean) map.get("data"));
+		String string = restTemplate.postForObject(url, entity, String.class);
+		log.info(string);
+		assertNotNull(string);
+		assertEquals("true", string);
 	}
 
 	@Test
