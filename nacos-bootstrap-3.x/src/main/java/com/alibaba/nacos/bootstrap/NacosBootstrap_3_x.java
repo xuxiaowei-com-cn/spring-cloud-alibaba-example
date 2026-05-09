@@ -16,12 +16,12 @@
 
 package com.alibaba.nacos.bootstrap;
 
+import com.alibaba.nacos.airegistry.NacosAiRegistry;
 import com.alibaba.nacos.NacosServerBasicApplication;
 import com.alibaba.nacos.NacosServerWebApplication;
 import com.alibaba.nacos.console.NacosConsole;
 import com.alibaba.nacos.core.listener.startup.NacosStartUp;
 import com.alibaba.nacos.core.listener.startup.NacosStartUpManager;
-import com.alibaba.nacos.mcpregistry.NacosMcpRegistry;
 import com.alibaba.nacos.plugin.auth.exception.AccessException;
 import com.alibaba.nacos.plugin.auth.impl.token.TokenManagerDelegate;
 import com.alibaba.nacos.sys.env.Constants;
@@ -98,8 +98,8 @@ public class NacosBootstrap_3_x {
 		ConfigurableApplicationContext coreContext = startCoreContext(args);
 		prepareCoreContext(coreContext);
 		ConfigurableApplicationContext webContext = startServerWebContext(args, coreContext);
-		if (isEnabledMcpRegistryApi(coreContext)) {
-			ConfigurableApplicationContext mcpRegistryContext = startMcpRegistryContext(args, coreContext);
+		if (isEnabledAiRegistry(coreContext)) {
+			ConfigurableApplicationContext aiRegistryContext = startAiRegistryContext(args, coreContext);
 		}
 	}
 
@@ -108,10 +108,9 @@ public class NacosBootstrap_3_x {
 		prepareCoreContext(coreContext);
 		ConfigurableApplicationContext serverWebContext = startServerWebContext(args, coreContext);
 		ConfigurableApplicationContext consoleContext = startConsoleContext(args, coreContext);
-		if (isEnabledMcpRegistryApi(coreContext)) {
-			ConfigurableApplicationContext mcpRegistryContext = startMcpRegistryContext(args, coreContext);
+		if (isEnabledAiRegistry(coreContext)) {
+			ConfigurableApplicationContext aiRegistryContext = startAiRegistryContext(args, coreContext);
 		}
-
 		String env = System.getenv("NACOS_CREATE_TOKEN");
 		if (StringUtils.hasText(env) && "true".equalsIgnoreCase(env)) {
 			TokenManagerDelegate tokenManagerDelegate = coreContext.getBean(TokenManagerDelegate.class);
@@ -168,11 +167,11 @@ public class NacosBootstrap_3_x {
 			.run(args);
 	}
 
-	private static ConfigurableApplicationContext startMcpRegistryContext(String[] args,
+	private static ConfigurableApplicationContext startAiRegistryContext(String[] args,
 			ConfigurableApplicationContext coreContext) {
-		NacosStartUpManager.start(NacosStartUp.MCP_REGISTRY_START_UP_PHASE);
-		return new SpringApplicationBuilder(NacosMcpRegistry.class).parent(coreContext)
-			.banner(getBanner("nacos-mcp-registry-banner.txt"))
+		NacosStartUpManager.start(NacosStartUp.AI_REGISTRY_START_UP_PHASE);
+		return new SpringApplicationBuilder(NacosAiRegistry.class).parent(coreContext)
+			.banner(getBanner("nacos-ai-registry-banner.txt"))
 			.run(args);
 	}
 
@@ -185,8 +184,12 @@ public class NacosBootstrap_3_x {
 		return new ResourceBanner(new ClassPathResource(bannerFileName));
 	}
 
-	private static boolean isEnabledMcpRegistryApi(ConfigurableApplicationContext coreContext) {
-		return coreContext.getEnvironment().getProperty("nacos.ai.mcp.registry.enabled", Boolean.class, false);
+	private static boolean isEnabledAiRegistry(ConfigurableApplicationContext coreContext) {
+		boolean mcpRegistryEnabled = coreContext.getEnvironment()
+			.getProperty("nacos.ai.mcp.registry.enabled", Boolean.class, false);
+		boolean skillRegistryEnabled = coreContext.getEnvironment()
+			.getProperty("nacos.ai.skill.registry.enabled", Boolean.class, false);
+		return mcpRegistryEnabled || skillRegistryEnabled;
 	}
 
 }
