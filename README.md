@@ -4,7 +4,7 @@
 
 | 模块                                                                                           | Spring Boot | Spring Cloud | Spring Cloud Alibaba | Nacos | packaging | 说明                                  |
 |----------------------------------------------------------------------------------------------|-------------|--------------|----------------------|-------|-----------|-------------------------------------|
-| [nacos-bootstrap-3.x](nacos-bootstrap-3.x)                                                   | 3.4.9       | -            | -                    | 3.2.0 | jar       | 用于快速启动 Nacos                        |
+| [nacos-bootstrap-3.x](nacos-bootstrap-3.x)                                                   | 3.4.10      | -            | -                    | 3.2.0 | jar       | 用于快速启动 Nacos                        |
 | [seata-server-2.x](seata-server-2.x)                                                         | 2.7.18      | -            | -                    | 2.0.4 | jar       | 用于快速启动 Seata                        |
 | [sentinel-dashboard-1.x](sentinel-dashboard-1.x)                                             | 2.5.12      | -            | -                    | -     | jar       | 用于快速启动 sentinel-dashboard           |
 | [spring-cloud-2021.0.x](spring-cloud-2021.0.x)                                               | 2.6.15      | 2021.0.9     | 2021.0.6.2           | 2.2.0 | pom       | Spring Cloud 2021.0.x 依赖管理          |
