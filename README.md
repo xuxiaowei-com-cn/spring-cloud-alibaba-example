@@ -3,15 +3,15 @@
 ## 项目模块说明
 
 | 模块                                               | Spring Boot | Spring Cloud | Spring Cloud Alibaba | Nacos |
-|--------------------------------------------------|:-----------:|:------------:|:--------------------:|:-----:|
-| [nacos-bootstrap-3.x](nacos-bootstrap-3.x)       |   3.5.13    |      -       |          -           | 3.2.1 |
-| [seata-server-2.x](seata-server-2.x)             |   2.7.18    |      -       |          -           | 2.0.4 |
-| [sentinel-dashboard-1.x](sentinel-dashboard-1.x) |   2.5.12    |      -       |          -           |   -   |
-| [spring-cloud-2021.0.x](spring-cloud-2021.0.x)   |   2.6.15    |   2021.0.9   |      2021.0.6.2      | 2.2.0 |
-| [spring-cloud-2022.0.x](spring-cloud-2022.0.x)   |   3.0.13    |   2022.0.5   |      2022.0.0.2      | 2.2.3 |
-| [spring-cloud-2023.0.x](spring-cloud-2023.0.x)   |   3.2.12    |   2023.0.6   |      2023.0.3.4      | 2.4.3 |
-| [spring-cloud-2025.0.x](spring-cloud-2025.0.x)   |   3.5.14    |   2025.0.2   | 2025.0.0.1-SNAPSHOT  | 3.1.1 |
-| [spring-cloud-2025.1.x](spring-cloud-2025.1.x)   |    4.0.6    |   2025.1.1   | 2025.1.0.1-SNAPSHOT  | 3.1.1 |
+|--------------------------------------------------|-------------|--------------|----------------------|-------|
+| [nacos-bootstrap-3.x](nacos-bootstrap-3.x)       | 3.5.13      | -            | -                    | 3.2.1 |
+| [seata-server-2.x](seata-server-2.x)             | 2.7.18      | -            | -                    | 2.0.4 |
+| [sentinel-dashboard-1.x](sentinel-dashboard-1.x) | 2.5.12      | -            | -                    | -     |
+| [spring-cloud-2021.0.x](spring-cloud-2021.0.x)   | 2.6.15      | 2021.0.9     | 2021.0.6.2           | 2.2.0 |
+| [spring-cloud-2022.0.x](spring-cloud-2022.0.x)   | 3.0.13      | 2022.0.5     | 2022.0.0.2           | 2.2.3 |
+| [spring-cloud-2023.0.x](spring-cloud-2023.0.x)   | 3.2.12      | 2023.0.6     | 2023.0.3.4           | 2.4.3 |
+| [spring-cloud-2025.0.x](spring-cloud-2025.0.x)   | 3.5.14      | 2025.0.2     | 2025.0.0.1-SNAPSHOT  | 3.1.1 |
+| [spring-cloud-2025.1.x](spring-cloud-2025.1.x)   | 4.0.6       | 2025.1.1     | 2025.1.0.1-SNAPSHOT  | 3.1.1 |
 
 <details>
 <summary>完整模块列表（含子模块）</summary>
