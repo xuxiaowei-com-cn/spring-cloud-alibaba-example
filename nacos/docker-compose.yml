@@ -1,7 +1,7 @@
 services:
   nacos:
     container_name: nacos
-    image: nacos/nacos-server:${NACOS_VERSION:-v3.2.1}
+    image: nacos/nacos-server:${NACOS_VERSION:-latest}
     restart: always
     network_mode: host
     #ports:
