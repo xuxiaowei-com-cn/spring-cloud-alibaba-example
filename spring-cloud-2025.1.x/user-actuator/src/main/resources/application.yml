@@ -18,7 +18,6 @@ custom:
 spring:
   config:
     import:
-      - optional:nacos:token.yml
       - optional:nacos:application-user.yml
       - optional:nacos:application-user-${custom.name}.yml
       - optional:nacos:application-user-a1.yml?group=${custom.nacos.config.group}
