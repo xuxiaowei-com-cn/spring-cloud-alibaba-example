@@ -130,6 +130,22 @@
 4. [![Spring Cloud Alibaba 2025.0.x](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.0.x.yml/badge.svg)](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.0.x.yml)
 5. [![Spring Cloud Alibaba 2025.1.x](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.1.x.yml/badge.svg)](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/actions/workflows/spring-cloud-2025.1.x.yml)
 
+## Maven 配置
+
+由于使用了 spring-cloud-alibaba 的 GitHub Package Maven 快照，需要在 Maven `settings.xml` 中配置 GitHub Packages 认证：
+
+```xml
+<server>
+    <id>github</id>
+    <username>GitHub 用户名</username>
+    <password>GitHub Token（需要 read:packages 权限）</password>
+</server>
+```
+
+使用说明见：[spring-cloud-alibaba#4185](https://github.com/alibaba/spring-cloud-alibaba/issues/4185)
+
+国内用户如果无法访问 GitHub Package，见：[spring-cloud-alibaba#4299](https://github.com/alibaba/spring-cloud-alibaba/issues/4299)
+
 ## 文档
 
 1. https://seata.apache.org/zh-cn/docs/user/quickstart
