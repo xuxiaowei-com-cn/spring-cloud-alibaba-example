@@ -79,12 +79,6 @@
 
 - Nacos 后台管理地址：http://127.0.0.1:8080
 - Nacos 用户名：`nacos`，密码：`nacos`
-- [NacosBootstrap_3_x.java](nacos-bootstrap-3.x/src/main/java/com/alibaba/nacos/bootstrap/NacosBootstrap_3_x.java)
-  启动 nacos 时，如果存在环境变量 `NACOS_CREATE_TOKEN=true`，会创建一个 nacos `token` 并更新到 nacos 的配置（`token.yml`）中：
-    1. nacos `token` 用于在测试类中修改 nacos 配置中心中的配置，用于配置动态刷新的测试
-    2. 如果 nacos 启动时间过上，nacos `token` 可能会失效，需要重启 nacos
-    3. 测试示例：
-       [UserController_2025_0_x_Tests.java](spring-cloud-2025.0.x/user/src/test/java/cn/com/xuxiaowei/user/controller/UserController_2025_0_x_Tests.java)
 
 ### Sentinel Dashboard
 
