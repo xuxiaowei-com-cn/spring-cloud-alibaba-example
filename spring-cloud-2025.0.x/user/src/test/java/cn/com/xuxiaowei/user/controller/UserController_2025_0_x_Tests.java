@@ -1,6 +1,5 @@
 package cn.com.xuxiaowei.user.controller;
 
-import cn.com.xuxiaowei.user.properties.TokenProperties;
 import cn.com.xuxiaowei.user.properties.UserProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Map;
 import java.util.UUID;
 
-import static com.alibaba.nacos.client.auth.impl.NacosAuthLoginConstant.ACCESSTOKEN;
+import static com.alibaba.nacos.client.auth.impl.NacosAuthLoginConstant.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -44,8 +43,7 @@ class UserController_2025_0_x_Tests {
 	private int port;
 
 	/** Nacos 认证 token 配置，用于调用 Nacos OpenAPI 修改配置。 */
-	@Autowired
-	private TokenProperties tokenProperties;
+	private String token;
 
 	/** User 业务属性配置，包含 {@code password} 等可动态刷新的字段。 */
 	@Autowired
@@ -57,7 +55,15 @@ class UserController_2025_0_x_Tests {
 	 */
 	@BeforeEach
 	void setUp() throws InterruptedException {
-		String token = tokenProperties.getToken();
+		HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+		MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
+		body.add(USERNAME, "nacos");
+		body.add(PASSWORD, "nacos");
+		RestTemplate restTemplate = new RestTemplate();
+		Map<String, Object> map = restTemplate.postForObject("http://127.0.0.1:8080/v3/auth/user/login", body,
+				Map.class);
+		token = (String) map.get(ACCESSTOKEN);
 		editPassword(token, "xuxiaowei.com.cn");
 		Thread.sleep(1_000);
 	}
@@ -110,7 +116,6 @@ class UserController_2025_0_x_Tests {
 
 		// 通过 Nacos OpenAPI 动态修改配置并验证 @RefreshScope 刷新
 		{
-			String token = tokenProperties.getToken();
 
 			log.info("刷新前 @ConfigurationProperties 绑定的 password: {}", userProperties.getPassword());
 
