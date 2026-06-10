@@ -76,7 +76,7 @@ dependency-updates: ## Check for dependency updates
 	$(MVN) $(MAVEN_ARGS) versions:display-dependency-updates
 
 run-nacos: ## Run nacos-bootstrap-3.x module
-	NACOS_CREATE_TOKEN=true $(MVN) clean spring-boot:run -pl nacos-bootstrap-3.x
+	$(MVN) clean spring-boot:run -pl nacos-bootstrap-3.x
 
 run-seata: ## Run seata-server-2.x module
 	REGISTRY_PREFERREDNETWORKS=172.25.25.* $(MVN) clean spring-boot:run -pl seata-server-2.x
@@ -135,7 +135,7 @@ test-user-sentinel: ## Test spring-cloud-2025.1.x/user-sentinel module
 test-integration-2025.1.x: ## Run integration test for spring-cloud-2025.1.x
 	@echo "Starting integration test for spring-cloud-2025.1.x..."
 	@echo "Step 1/12: Starting nacos-bootstrap-3.x..."
-	@NACOS_CREATE_TOKEN=true $(MVN) clean spring-boot:run -pl nacos-bootstrap-3.x > ./tmp/nacos.log 2>&1 & echo $$! > ./tmp/nacos.pid
+	@$(MVN) clean spring-boot:run -pl nacos-bootstrap-3.x > ./tmp/nacos.log 2>&1 & echo $$! > ./tmp/nacos.pid
 	@sleep 30
 	@echo "Step 2/12: Starting seata-server-2.x..."
 	@REGISTRY_PREFERREDNETWORKS=172.25.25.* $(MVN) clean spring-boot:run -pl seata-server-2.x > ./tmp/seata.log 2>&1 & echo $$! > ./tmp/seata.pid

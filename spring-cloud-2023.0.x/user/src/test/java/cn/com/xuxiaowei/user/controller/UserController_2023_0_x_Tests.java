@@ -1,6 +1,5 @@
 package cn.com.xuxiaowei.user.controller;
 
-import cn.com.xuxiaowei.user.properties.TokenProperties;
 import cn.com.xuxiaowei.user.properties.UserProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Map;
 import java.util.UUID;
 
-import static com.alibaba.nacos.client.auth.impl.NacosAuthLoginConstant.ACCESSTOKEN;
+import static com.alibaba.nacos.client.auth.impl.NacosAuthLoginConstant.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
@@ -30,15 +29,22 @@ class UserController_2023_0_x_Tests {
 	@LocalServerPort
 	private int port;
 
-	@Autowired
-	private TokenProperties tokenProperties;
+	private String token;
 
 	@Autowired
 	private UserProperties userProperties;
 
 	@BeforeEach
 	void setUp() throws InterruptedException {
-		String token = tokenProperties.getToken();
+		HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+		MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
+		body.add(USERNAME, "nacos");
+		body.add(PASSWORD, "nacos");
+		RestTemplate restTemplate = new RestTemplate();
+		Map<String, Object> map = restTemplate.postForObject("http://127.0.0.1:8080/v3/auth/user/login", body,
+				Map.class);
+		token = (String) map.get(ACCESSTOKEN);
 		editPassword(token, "xuxiaowei.com.cn");
 		Thread.sleep(1_000);
 	}
@@ -66,7 +72,6 @@ class UserController_2023_0_x_Tests {
 
 		// 刷新配置
 		{
-			String token = tokenProperties.getToken();
 
 			String password = UUID.randomUUID().toString();
 			editPassword(token, password);
