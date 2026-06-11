@@ -152,35 +152,98 @@ jobs:
         run: |
           cd ${{ env.NACOS_BOOTSTRAP_DIR }}
           nohup ./mvnw -B spring-boot:run &
-          sleep 30
+          for i in $(seq 1 30); do
+            if nc -z 127.0.0.1 8848; then
+              echo "nacos-bootstrap is ready!"
+              break
+            fi
+            echo "Waiting for nacos-bootstrap... attempt $i"
+            sleep 1
+          done
 
       - name: Start seata-server
         run: |
           cd ${{ env.SEATA_SERVER_DIR }}
           nohup ./mvnw -B spring-boot:run &
-          sleep 30
+          for i in $(seq 1 30); do
+            if nc -z 127.0.0.1 8091; then
+              echo "seata-server is ready!"
+              break
+            fi
+            echo "Waiting for seata-server... attempt $i"
+            sleep 1
+          done
 
       - name: Start sentinel-dashboard
         run: |
           cd ${{ env.SENTINEL_DASHBOARD_DIR }}
           nohup ./mvnw -B spring-boot:run &
-          sleep 30
+          for i in $(seq 1 30); do
+            if nc -z 127.0.0.1 58080; then
+              echo "sentinel-dashboard is ready!"
+              break
+            fi
+            echo "Waiting for sentinel-dashboard... attempt $i"
+            sleep 1
+          done
 
       - name: Start ${{ env.MODULE_NAME }} services
         run: |
           cd ${{ env.MODULE_NAME }}
           nohup ./mvnw -B spring-boot:run -pl user &
-          sleep 20
+          for i in $(seq 1 20); do
+            if nc -z 127.0.0.1 5023; then
+              echo "user is ready!"
+              break
+            fi
+            echo "Waiting for user... attempt $i"
+            sleep 1
+          done
           nohup ./mvnw -B spring-boot:run -pl user-actuator &
-          sleep 20
+          for i in $(seq 1 20); do
+            if nc -z 127.0.0.1 5024; then
+              echo "user-actuator is ready!"
+              break
+            fi
+            echo "Waiting for user-actuator... attempt $i"
+            sleep 1
+          done
           nohup ./mvnw -B spring-boot:run -pl user-seata &
-          sleep 20
+          for i in $(seq 1 20); do
+            if nc -z 127.0.0.1 5026; then
+              echo "user-seata is ready!"
+              break
+            fi
+            echo "Waiting for user-seata... attempt $i"
+            sleep 1
+          done
           nohup ./mvnw -B spring-boot:run -pl user-sentinel &
-          sleep 20
+          for i in $(seq 1 20); do
+            if nc -z 127.0.0.1 5028; then
+              echo "user-sentinel is ready!"
+              break
+            fi
+            echo "Waiting for user-sentinel... attempt $i"
+            sleep 1
+          done
           nohup ./mvnw -B spring-boot:run -pl gateway &
-          sleep 20
+          for i in $(seq 1 20); do
+            if nc -z 127.0.0.1 5021; then
+              echo "gateway is ready!"
+              break
+            fi
+            echo "Waiting for gateway... attempt $i"
+            sleep 1
+          done
           nohup ./mvnw -B spring-boot:run -pl gateway-mvc &
-          sleep 20
+          for i in $(seq 1 20); do
+            if nc -z 127.0.0.1 5022; then
+              echo "gateway-mvc is ready!"
+              break
+            fi
+            echo "Waiting for gateway-mvc... attempt $i"
+            sleep 1
+          done
 
       - name: Run ${{ env.MODULE_NAME }} tests
         run: |
