@@ -169,23 +169,41 @@ jobs:
       - name: Start ${{ env.MODULE_NAME }} services
         run: |
           cd ${{ env.MODULE_NAME }}
-          nohup ./mvnw -B spring-boot:run -pl user &
+          nohup ./mvnw -B spring-boot:run -pl user > ../tmp/user.log 2>&1 &
           sleep 20
-          nohup ./mvnw -B spring-boot:run -pl user-actuator &
+          nohup ./mvnw -B spring-boot:run -pl user-actuator > ../tmp/user-actuator.log 2>&1 &
           sleep 20
-          nohup ./mvnw -B spring-boot:run -pl user-seata &
+          nohup ./mvnw -B spring-boot:run -pl user-seata > ../tmp/user-seata.log 2>&1 &
           sleep 20
-          nohup ./mvnw -B spring-boot:run -pl user-sentinel &
+          nohup ./mvnw -B spring-boot:run -pl user-sentinel > ../tmp/user-sentinel.log 2>&1 &
           sleep 20
-          nohup ./mvnw -B spring-boot:run -pl gateway-server-webflux &
+          nohup ./mvnw -B spring-boot:run -pl gateway-server-webflux > ../tmp/gateway-webflux.log 2>&1 &
           sleep 20
-          nohup ./mvnw -B spring-boot:run -pl gateway-server-webmvc &
+          nohup ./mvnw -B spring-boot:run -pl gateway-server-webmvc > ../tmp/gateway-webmvc.log 2>&1 &
           sleep 20
+
+      - name: View ${{ env.MODULE_NAME }} service logs
+        if: always()
+        run: |
+          for f in ./tmp/*.log; do
+            echo "=== $f ==="
+            cat "$f"
+            echo
+          done
 
       - name: Run ${{ env.MODULE_NAME }} tests
         run: |
           cd ${{ env.MODULE_NAME }}
           ./mvnw -B test
+
+      - name: View ${{ env.MODULE_NAME }} service logs
+        if: always()
+        run: |
+          for f in ./tmp/*.log; do
+            echo "=== $f ==="
+            cat "$f"
+            echo
+          done
 
       - name: Clean Maven snapshots
         run: |

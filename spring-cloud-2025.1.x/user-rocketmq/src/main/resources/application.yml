@@ -9,10 +9,6 @@ spring:
 
 ---
 
-spring.cloud.compatibility-verifier.enabled: false
-
----
-
 # Nacos配置中心和服务发现配置
 spring:
   config:

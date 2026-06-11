@@ -7,10 +7,6 @@ spring:
 
 ---
 
-spring.cloud.compatibility-verifier.enabled: false
-
----
-
 spring:
   config:
     import:
