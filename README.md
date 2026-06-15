@@ -11,7 +11,7 @@
 | [spring-cloud-2022.0.x](spring-cloud-2022.0.x)   | 3.0.13      | 2022.0.5     | 2022.0.0.2           | 2.2.3 |
 | [spring-cloud-2023.0.x](spring-cloud-2023.0.x)   | 3.2.12      | 2023.0.6     | 2023.0.3.4           | 2.4.3 |
 | [spring-cloud-2025.0.x](spring-cloud-2025.0.x)   | 3.5.15      | 2025.0.3     | 2025.0.0.1-SNAPSHOT  | 3.1.1 |
-| [spring-cloud-2025.1.x](spring-cloud-2025.1.x)   | 4.1.0       | 2025.1.1     | 2025.1.0.1-SNAPSHOT  | 3.1.1 |
+| [spring-cloud-2025.1.x](spring-cloud-2025.1.x)   | 4.1.0       | 2025.1.2     | 2025.1.0.1-SNAPSHOT  | 3.1.1 |
 
 <details>
 <summary>完整模块列表（含子模块）</summary>
@@ -50,7 +50,7 @@
 | [spring-cloud-2025.0.x/user-seata](spring-cloud-2025.0.x/user-seata)                         | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：Seata（服务内部的事务传播）                 |
 | [spring-cloud-2025.0.x/user-schedulerx](spring-cloud-2025.0.x/user-schedulerx)               | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：SchedulerX                       |
 | [spring-cloud-2025.0.x/user-sentinel](spring-cloud-2025.0.x/user-sentinel)                   | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：Sentinel                         |
-| [spring-cloud-2025.1.x](spring-cloud-2025.1.x)                                               | 4.1.0       | 2025.1.1     | 2025.1.0.1-SNAPSHOT  | 3.1.1 | pom       | Spring Cloud 2025.1.x 依赖管理          |
+| [spring-cloud-2025.1.x](spring-cloud-2025.1.x)                                               | 4.1.0       | 2025.1.2     | 2025.1.0.1-SNAPSHOT  | 3.1.1 | pom       | Spring Cloud 2025.1.x 依赖管理          |
 | [spring-cloud-2025.1.x/gateway-server-webflux](spring-cloud-2025.1.x/gateway-server-webflux) | 同上          | 同上           | 同上                   | 同上    | jar       | gateway webflux                     |
 | [spring-cloud-2025.1.x/gateway-server-webmvc](spring-cloud-2025.1.x/gateway-server-webmvc)   | 同上          | 同上           | 同上                   | 同上    | jar       | gateway mvc                         |
 | [spring-cloud-2025.1.x/user](spring-cloud-2025.1.x/user)                                     | 同上          | 同上           | 同上                   | 同上    | jar       | 测试：服务间调用、读取 nacos 中的配置              |
