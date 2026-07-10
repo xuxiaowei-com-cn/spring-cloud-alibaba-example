@@ -4,6 +4,7 @@ import cn.com.xuxiaowei.user.dto.StorageRequest;
 import cn.com.xuxiaowei.user.service.StorageService;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class StorageServiceImpl implements StorageService {
@@ -15,6 +16,7 @@ public class StorageServiceImpl implements StorageService {
 	}
 
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public void storage(StorageRequest request) {
 		String commodityCode = request.getCommodityCode();
 		Integer count = request.getCount();

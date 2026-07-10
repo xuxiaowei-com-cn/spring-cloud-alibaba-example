@@ -5,6 +5,7 @@ import cn.com.xuxiaowei.user.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -17,6 +18,7 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public void money(AccountMoneyRequest request) {
 
 		String userId = request.getUserId();
