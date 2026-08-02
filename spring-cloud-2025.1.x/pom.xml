@@ -83,8 +83,8 @@
             </snapshots>
         </repository>
         <repository>
-            <id>orgapacheseata-1269</id>
-            <url>https://repository.apache.org/content/repositories/orgapacheseata-1269</url>
+            <id>orgapacheseata-1270</id>
+            <url>https://repository.apache.org/content/repositories/orgapacheseata-1270</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
