@@ -20,7 +20,7 @@ MAVEN_ARGS ?= -T 4C -e -B -V
 
 # Mark targets as phony (not actual files)
 .PHONY: help \
-	format clean deep-clean package build \
+	format clean clean-deep clean-local-snapshot package build \
 	package-with-tests test \
 	verify \
 	dependency-tree dependency-updates \
@@ -37,7 +37,7 @@ format: ## Format Java code with spring-javaformat
 clean: ## Clean the project
 	$(MVN) $(MAVEN_ARGS) clean
 
-deep-clean: clean ## Deep clean the project (mvn clean + remove runtime files)
+clean-deep: clean ## Deep clean the project (mvn clean + remove runtime files)
 	@echo "Cleaning additional files and directories..."
 	@-rm -rf file_store
 	@-rm -rf logs
@@ -48,6 +48,11 @@ deep-clean: clean ## Deep clean the project (mvn clean + remove runtime files)
 	@-rm -rf seata-server-2.x/file_store
 	@-rm -rf seata-server-2.x/sessionStore
 	@echo "Deep cleanup completed."
+
+clean-local-snapshot: ## Remove all *-SNAPSHOT directories from the local Maven repository
+	LOCAL_REPO="$$($(MVN) help:evaluate -Dexpression=settings.localRepository -q -DforceStdout)"; \
+	echo "Local Maven repository: $${LOCAL_REPO}"; \
+	find "$${LOCAL_REPO}" -type d -name '*-SNAPSHOT' -print -exec rm -r {} +
 
 package: ## Build Maven project (skip tests)
 	@echo "Building ..."
