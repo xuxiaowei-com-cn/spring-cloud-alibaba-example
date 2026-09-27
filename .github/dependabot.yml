@@ -5,9 +5,23 @@
 # https://docs.github.com/zh/code-security/reference/supply-chain-security/dependabot-options-reference
 
 version: 2
+
+# spring-cloud-alibaba 的 SNAPSHOT 发布在 GitHub Packages，匿名访问返回 401，
+# Dependabot 需要凭据才能解析/更新这些依赖。
+# 需要在仓库 Settings → Secrets and variables → Dependabot 中配置 PACKAGES_TOKEN，
+# 值为具有 read:packages 权限的 GitHub PAT。
+registries:
+  alibaba-sca:
+    type: maven-repository
+    url: https://maven.pkg.github.com/alibaba/spring-cloud-alibaba
+    username: xuxiaowei-com-cn
+    password: ${{ secrets.PACKAGES_TOKEN }}
+
 updates:
   - package-ecosystem: "maven" # See documentation for possible values
     directory: "/spring-cloud-2026.0.x" # Location of package manifests
+    registries:
+      - alibaba-sca
     open-pull-requests-limit: 50
     schedule:
       interval: "daily"
@@ -16,6 +30,8 @@ updates:
 
   - package-ecosystem: "maven" # See documentation for possible values
     directory: "/spring-cloud-2025.1.x" # Location of package manifests
+    registries:
+      - alibaba-sca
     open-pull-requests-limit: 50
     schedule:
       interval: "daily"
@@ -24,6 +40,8 @@ updates:
 
   - package-ecosystem: "maven" # See documentation for possible values
     directory: "/spring-cloud-2025.0.x" # Location of package manifests
+    registries:
+      - alibaba-sca
     open-pull-requests-limit: 50
     schedule:
       interval: "daily"
