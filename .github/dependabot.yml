@@ -12,7 +12,7 @@ version: 2
 # 值为具有 read:packages 权限的 GitHub PAT。
 # 注意：不要把 PACKAGES_TOKEN 设置在 Actions 中，否则无效
 registries:
-  registries-sca:
+  alibaba-sca:
     type: maven-repository
     url: https://maven.pkg.github.com/alibaba/spring-cloud-alibaba
     username: xuxiaowei-com-cn
@@ -22,7 +22,7 @@ updates:
   - package-ecosystem: "maven" # See documentation for possible values
     directory: "/spring-cloud-2026.0.x" # Location of package manifests
     registries:
-      - registries-sca
+      - alibaba-sca
     open-pull-requests-limit: 50
     schedule:
       interval: "daily"
@@ -32,7 +32,7 @@ updates:
   - package-ecosystem: "maven" # See documentation for possible values
     directory: "/spring-cloud-2025.1.x" # Location of package manifests
     registries:
-      - registries-sca
+      - alibaba-sca
     open-pull-requests-limit: 50
     schedule:
       interval: "daily"
@@ -42,7 +42,7 @@ updates:
   - package-ecosystem: "maven" # See documentation for possible values
     directory: "/spring-cloud-2025.0.x" # Location of package manifests
     registries:
-      - registries-sca
+      - alibaba-sca
     open-pull-requests-limit: 50
     schedule:
       interval: "daily"
