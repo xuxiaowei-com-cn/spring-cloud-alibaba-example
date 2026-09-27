@@ -10,6 +10,7 @@ version: 2
 # Dependabot 需要凭据才能解析/更新这些依赖。
 # 需要在仓库 Settings → Secrets and variables → Dependabot 中配置 PACKAGES_TOKEN，
 # 值为具有 read:packages 权限的 GitHub PAT。
+# 注意：不要把 PACKAGES_TOKEN 设置在 Actions 中，否则无效
 registries:
   alibaba-sca:
     type: maven-repository
