@@ -35,6 +35,7 @@
         <module>spring-cloud-2023.0.x</module>
         <module>spring-cloud-2025.0.x</module>
         <module>spring-cloud-2025.1.x</module>
+        <module>spring-cloud-2026.0.x</module>
     </modules>
 
     <build>

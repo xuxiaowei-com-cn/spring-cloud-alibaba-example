@@ -1,0 +1,35 @@
+server:
+  port: 5064
+
+spring:
+  application:
+    name: user-actuator
+
+---
+
+custom:
+  name: env
+  nacos:
+    config:
+      group: a1
+
+---
+
+spring:
+  config:
+    import:
+      - optional:nacos:application-user.yml
+      - optional:nacos:application-user-${custom.name}.yml
+      - optional:nacos:application-user-a1.yml?group=${custom.nacos.config.group}
+      - optional:nacos:application-test.yml
+  cloud:
+    nacos:
+      discovery:
+        namespace: ${NACOS_DISCOVERY_NAMESPACE:public}
+        server-addr: ${NACOS_DISCOVERY_SERVER_ADDR:127.0.0.1:8848}
+      config:
+        namespace: ${NACOS_CONFIG_NAMESPACE:${NACOS_DISCOVERY_NAMESPACE:public}}
+        server-addr: ${NACOS_CONFIG_SERVER_ADDR:${NACOS_DISCOVERY_SERVER_ADDR:127.0.0.1:8848}}
+        import-check:
+          enabled: false
+        file-extension: yml
