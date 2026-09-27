@@ -7,6 +7,14 @@
 version: 2
 updates:
   - package-ecosystem: "maven" # See documentation for possible values
+    directory: "/spring-cloud-2026.0.x" # Location of package manifests
+    open-pull-requests-limit: 50
+    schedule:
+      interval: "daily"
+      time: "00:00"
+      timezone: "Asia/Shanghai"
+
+  - package-ecosystem: "maven" # See documentation for possible values
     directory: "/spring-cloud-2025.1.x" # Location of package manifests
     open-pull-requests-limit: 50
     schedule:
