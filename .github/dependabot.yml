@@ -28,6 +28,8 @@ updates:
       interval: "daily"
       time: "00:00"
       timezone: "Asia/Shanghai"
+    ignore:
+      - dependency-name: org.apache.maven:apache-maven
 
   - package-ecosystem: "maven" # See documentation for possible values
     directory: "/spring-cloud-2025.1.x" # Location of package manifests
@@ -38,6 +40,8 @@ updates:
       interval: "daily"
       time: "00:00"
       timezone: "Asia/Shanghai"
+    ignore:
+      - dependency-name: org.apache.maven:apache-maven
 
   - package-ecosystem: "maven" # See documentation for possible values
     directory: "/spring-cloud-2025.0.x" # Location of package manifests
@@ -49,6 +53,7 @@ updates:
       time: "00:00"
       timezone: "Asia/Shanghai"
     ignore:
+      - dependency-name: org.apache.maven:apache-maven
       - dependency-name: org.springframework.boot:spring-boot-starter-parent
         versions:
           - ">= 4"
