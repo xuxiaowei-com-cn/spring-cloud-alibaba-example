@@ -10,9 +10,9 @@
 | [spring-cloud-2021.0.x](spring-cloud-2021.0.x)   | 2.6.15      | 2021.0.9     | 2021.0.6.2           | 2.2.0 | 1.6.1 |
 | [spring-cloud-2022.0.x](spring-cloud-2022.0.x)   | 3.0.13      | 2022.0.5     | 2022.0.0.2           | 2.2.3 | 1.8.0 |
 | [spring-cloud-2023.0.x](spring-cloud-2023.0.x)   | 3.2.12      | 2023.0.6     | 2023.0.3.4           | 2.4.3 | 2.1.0 |
-| [spring-cloud-2025.0.x](spring-cloud-2025.0.x)   | 3.5.16      | 2025.0.3     | 2025.0.0.1-SNAPSHOT  | 3.1.1 | 2.5.0 |
-| [spring-cloud-2025.1.x](spring-cloud-2025.1.x)   | 4.1.1       | 2025.1.3     | 2025.1.0.1-SNAPSHOT  | 3.1.1 | 2.6.0 |
-| [spring-cloud-2026.0.x](spring-cloud-2026.0.x)   | 4.2.0-M2    | 2026.0.0-M1  | 2026.0.0.0-SNAPSHOT  | 3.1.1 | 2.6.0 |
+| [spring-cloud-2025.0.x](spring-cloud-2025.0.x)   | 3.5.16      | 2025.0.3     | 2025.0.0.1-SNAPSHOT  | 3.1.1 | 2.7.0 |
+| [spring-cloud-2025.1.x](spring-cloud-2025.1.x)   | 4.1.1       | 2025.1.3     | 2025.1.0.1-SNAPSHOT  | 3.1.1 | 2.7.0 |
+| [spring-cloud-2026.0.x](spring-cloud-2026.0.x)   | 4.2.0-M2    | 2026.0.0-M1  | 2026.0.0.0-SNAPSHOT  | 3.1.1 | 2.7.0 |
 
 <details>
 <summary>完整模块列表（含子模块）</summary>
@@ -42,7 +42,7 @@
 | [spring-cloud-2023.0.x/user-seata](spring-cloud-2023.0.x/user-seata)                         | 同上        | 同上         | 同上                 | 同上  | 同上  | jar       | 测试：Seata（服务内部的事务传播）                      |
 | [spring-cloud-2023.0.x/user-schedulerx](spring-cloud-2023.0.x/user-schedulerx)               | 同上        | 同上         | 同上                 | 同上  | -     | jar       | 测试：SchedulerX                                       |
 | [spring-cloud-2023.0.x/user-sentinel](spring-cloud-2023.0.x/user-sentinel)                   | 同上        | 同上         | 同上                 | 同上  | -     | jar       | 测试：Sentinel                                         |
-| [spring-cloud-2025.0.x](spring-cloud-2025.0.x)                                               | 3.5.16      | 2025.0.3     | 2025.0.0.1-SNAPSHOT  | 3.1.1 | 2.5.0 | pom       | Spring Cloud 2025.0.x 依赖管理                         |
+| [spring-cloud-2025.0.x](spring-cloud-2025.0.x)                                               | 3.5.16      | 2025.0.3     | 2025.0.0.1-SNAPSHOT  | 3.1.1 | 2.7.0 | pom       | Spring Cloud 2025.0.x 依赖管理                         |
 | [spring-cloud-2025.0.x/gateway](spring-cloud-2025.0.x/gateway)                               | 同上        | 同上         | 同上                 | 同上  | -     | jar       | gateway webflux                                        |
 | [spring-cloud-2025.0.x/gateway-mvc](spring-cloud-2025.0.x/gateway-mvc)                       | 同上        | 同上         | 同上                 | 同上  | -     | jar       | gateway mvc                                            |
 | [spring-cloud-2025.0.x/user](spring-cloud-2025.0.x/user)                                     | 同上        | 同上         | 同上                 | 同上  | -     | jar       | 测试：服务间调用、读取 nacos 中的配置                  |
@@ -51,7 +51,7 @@
 | [spring-cloud-2025.0.x/user-seata](spring-cloud-2025.0.x/user-seata)                         | 同上        | 同上         | 同上                 | 同上  | 同上  | jar       | 测试：Seata（服务内部的事务传播）                      |
 | [spring-cloud-2025.0.x/user-schedulerx](spring-cloud-2025.0.x/user-schedulerx)               | 同上        | 同上         | 同上                 | 同上  | -     | jar       | 测试：SchedulerX                                       |
 | [spring-cloud-2025.0.x/user-sentinel](spring-cloud-2025.0.x/user-sentinel)                   | 同上        | 同上         | 同上                 | 同上  | -     | jar       | 测试：Sentinel                                         |
-| [spring-cloud-2025.1.x](spring-cloud-2025.1.x)                                               | 4.1.1       | 2025.1.3     | 2025.1.0.1-SNAPSHOT  | 3.1.1 | 2.6.0 | pom       | Spring Cloud 2025.1.x 依赖管理                         |
+| [spring-cloud-2025.1.x](spring-cloud-2025.1.x)                                               | 4.1.1       | 2025.1.3     | 2025.1.0.1-SNAPSHOT  | 3.1.1 | 2.7.0 | pom       | Spring Cloud 2025.1.x 依赖管理                         |
 | [spring-cloud-2025.1.x/gateway-server-webflux](spring-cloud-2025.1.x/gateway-server-webflux) | 同上        | 同上         | 同上                 | 同上  | -     | jar       | gateway webflux                                        |
 | [spring-cloud-2025.1.x/gateway-server-webmvc](spring-cloud-2025.1.x/gateway-server-webmvc)   | 同上        | 同上         | 同上                 | 同上  | -     | jar       | gateway mvc                                            |
 | [spring-cloud-2025.1.x/user](spring-cloud-2025.1.x/user)                                     | 同上        | 同上         | 同上                 | 同上  | -     | jar       | 测试：服务间调用、读取 nacos 中的配置                  |
@@ -60,7 +60,7 @@
 | [spring-cloud-2025.1.x/user-seata](spring-cloud-2025.1.x/user-seata)                         | 同上        | 同上         | 同上                 | 同上  | 同上  | jar       | 测试：Seata（服务内部的事务传播）                      |
 | [spring-cloud-2025.1.x/user-schedulerx](spring-cloud-2025.1.x/user-schedulerx)               | 同上        | 同上         | 同上                 | 同上  | -     | jar       | 测试：SchedulerX                                       |
 | [spring-cloud-2025.1.x/user-sentinel](spring-cloud-2025.1.x/user-sentinel)                   | 同上        | 同上         | 同上                 | 同上  | -     | jar       | 测试：Sentinel                                         |
-| [spring-cloud-2026.0.x](spring-cloud-2026.0.x)                                               | 4.2.0-M2    | 2026.0.0-M1  | 2026.0.0.0-SNAPSHOT  | 3.1.1 | 2.6.0 | pom       | Spring Cloud 2026.0.x 依赖管理                         |
+| [spring-cloud-2026.0.x](spring-cloud-2026.0.x)                                               | 4.2.0-M2    | 2026.0.0-M1  | 2026.0.0.0-SNAPSHOT  | 3.1.1 | 2.7.0 | pom       | Spring Cloud 2026.0.x 依赖管理                         |
 | [spring-cloud-2026.0.x/gateway-server-webflux](spring-cloud-2026.0.x/gateway-server-webflux) | 同上        | 同上         | 同上                 | 同上  | -     | jar       | gateway webflux                                        |
 | [spring-cloud-2026.0.x/gateway-server-webmvc](spring-cloud-2026.0.x/gateway-server-webmvc)   | 同上        | 同上         | 同上                 | 同上  | -     | jar       | gateway mvc                                            |
 | [spring-cloud-2026.0.x/user](spring-cloud-2026.0.x/user)                                     | 同上        | 同上         | 同上                 | 同上  | -     | jar       | 测试：服务间调用、读取 nacos 中的配置                  |
@@ -71,6 +71,12 @@
 | [spring-cloud-2026.0.x/user-sentinel](spring-cloud-2026.0.x/user-sentinel)                   | 同上        | 同上         | 同上                 | 同上  | -     | jar       | 测试：Sentinel                                         |
 
 </details>
+
+> **Seata 版本说明**
+>
+> - `spring-cloud-2025.0.x`、`spring-cloud-2025.1.x`、`spring-cloud-2026.0.x` 的 `user-seata` 子模块显式引入 `org.apache.seata:seata-spring-boot-starter:2.7.0`，覆盖 Spring Cloud Alibaba 依赖管理中默认的 2.5.0 / 2.6.0 / 2.6.0。
+> - Seata `2.7.0` 目前仅存在于 Apache 发布投票的临时仓库 `orgapacheseata-1282`，尚未发布到 Maven Central，配置方式见 [Maven 配置](#maven-配置)。
+> - `seata-server-2.x` 模块仍使用 Seata `2.6.0`。
 
 ## [分支](https://github.com/xuxiaowei-com-cn/spring-cloud-alibaba-example/wiki)
 
@@ -149,6 +155,28 @@
 使用说明见：[spring-cloud-alibaba#4185](https://github.com/alibaba/spring-cloud-alibaba/issues/4185)
 
 国内用户如果无法访问 GitHub Package，见：[spring-cloud-alibaba#4299](https://github.com/alibaba/spring-cloud-alibaba/issues/4299)
+
+### Apache Seata 2.7.0 临时仓库
+
+`spring-cloud-2025.0.x`、`spring-cloud-2025.1.x`、`spring-cloud-2026.0.x` 的 `user-seata` 模块使用 Seata `2.7.0`，
+该版本尚未发布到 Maven Central，目前只存在于 Apache Seata 发布投票的临时仓库中，
+因此上述三个模块的父 `pom.xml` 均新增了如下仓库（公开仓库，无需认证）：
+
+```xml
+<repository>
+    <id>orgapacheseata-1282</id>
+    <url>https://repository.apache.org/content/repositories/orgapacheseata-1282</url>
+    <releases>
+        <enabled>true</enabled>
+    </releases>
+    <snapshots>
+        <enabled>false</enabled>
+    </snapshots>
+</repository>
+```
+
+> 该仓库为 Apache 发布投票（staging）仓库，投票结束后可能被关闭或删除；
+> Seata `2.7.0` 正式发布到 Maven Central 后，可移除该仓库及 `user-seata/pom.xml` 中显式的 `seata-spring-boot-starter` 版本号。
 
 ## 文档
 
